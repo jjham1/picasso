@@ -20,3 +20,13 @@ The `images` directory contains some sample images generated from Picasso.  Some
 ## Code Base History
 
 This code base originated as a project in a course at Duke University.  The professors realized that the code could be designed better and refactored.  This code base has some code leftover from the original version.
+
+## Authors
+
+Matthew Fritz
+
+Julie Ham
+
+Grace Owens
+
+Harry Crutcher
