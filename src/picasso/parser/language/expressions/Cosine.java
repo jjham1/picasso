@@ -25,10 +25,10 @@ public class Cosine extends UnaryFunction{
 	}
 	
 	/**
-	 * Evaluates this expression at the given x,y point by evaluating the cosine of
+	 * Evaluates this expression at the given x,y point by evaluating the cosine values of
 	 * the function's parameter.
 	 * 
-	 * @return the color from evaluating the floor of the expression's parameter
+	 * @return the color from evaluating the cosine value of the expression's parameter
 	 */
 	@Override
 	public RGBColor evaluate(double x, double y) {
