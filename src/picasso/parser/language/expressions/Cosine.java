@@ -21,6 +21,7 @@ public class Cosine extends UnaryFunction{
 	 */
 	
 	public Cosine(ExpressionTreeNode param) {
+
 		super(param);
 	}
 	
