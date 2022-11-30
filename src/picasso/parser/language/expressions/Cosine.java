@@ -2,7 +2,7 @@ package picasso.parser.language.expressions;
 
 import picasso.parser.language.ExpressionTreeNode;
 
-<<<<<<< HEAD
+
 public class Cosine extends UnaryFunction{
 	
 	/**
@@ -11,27 +11,18 @@ public class Cosine extends UnaryFunction{
 	 * @param param the expression that cosine acts on
 	 */
 	public Cosine(ExpressionTreeNode param) {
-=======
-/**
- * Represents the cosine function in the Picasso language.
- * 
- * @author Julie
- * @author Matthew
- * @author Harry
- * @author Grace
- * 
- */
 
-public class Cosine extends UnaryFunction{
-
-	public Cosine(ExpressionTreeNode param) {
 		/**
-		 * Create a cosine expression that takes as a parameter the given expression
+		 * Represents the cosine function in the Picasso language.
 		 * 
-		 * @param param the expression to cosine
+		 * @author Julie
+		 * @author Matthew
+		 * @author Harry
+		 * @author Grace
+		 * 
 		 */
 
->>>>>>> refs/heads/main
+
 		super(param);
 	}
 	
