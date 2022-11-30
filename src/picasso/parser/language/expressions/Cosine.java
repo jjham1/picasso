@@ -14,12 +14,13 @@ import picasso.parser.language.ExpressionTreeNode;
 
 public class Cosine extends UnaryFunction{
 
+	/**
+	 * Create a cosine expression that takes as a parameter the given expression
+	 * 
+	 * @param param the expression to cosine
+	 */
+	
 	public Cosine(ExpressionTreeNode param) {
-		/**
-		 * Create a cosine expression that takes as a parameter the given expression
-		 * 
-		 * @param param the expression to cosine
-		 */
 
 		super(param);
 	}
