@@ -2,16 +2,6 @@ package picasso.parser.language.expressions;
 
 import picasso.parser.language.ExpressionTreeNode;
 
-<<<<<<< HEAD
-public class Cosine extends UnaryFunction{
-	
-	/**
-	 * Create a cosine expression that takes as a parameter the given expression
-	 * 
-	 * @param param the expression that cosine acts on
-	 */
-	public Cosine(ExpressionTreeNode param) {
-=======
 /**
  * Represents the cosine function in the Picasso language.
  * 
@@ -31,7 +21,6 @@ public class Cosine extends UnaryFunction{
 		 * @param param the expression to cosine
 		 */
 
->>>>>>> refs/heads/main
 		super(param);
 	}
 	
