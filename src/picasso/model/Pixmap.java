@@ -36,11 +36,9 @@ public class Pixmap {
 	public static final Dimension DEFAULT_SIZE = new Dimension(300, 300);
 	public static final Color DEFAULT_COLOR = Color.BLACK;
 	public static final String DEFAULT_NAME = "Picasso";
-<<<<<<< HEAD
-	public static final String TEAM_NAME = "Picasso - MVPs";
-=======
+
 	public static final String TEAM_NAME = "MVP's Picasso";
->>>>>>> refs/heads/main
+
 
 	private String myFileName;
 	private BufferedImage myImage;
