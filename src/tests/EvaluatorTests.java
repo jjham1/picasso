@@ -74,7 +74,7 @@ public class EvaluatorTests {
 		Tangent myTree = new Tangent(new X());
 
 		// some straightforward tests
-		assertEquals(new RGBColor(0, 0, 0), myTree.evaluate(0, -1));
+		assertEquals(new RGBColor(0, 0, 0), myTree.evaluate(0, -2));
 		assertEquals(new RGBColor(1, 1, 1), myTree.evaluate(Math.PI/4, -1));
 		assertEquals(new RGBColor(-1, -1, -1), myTree.evaluate(7 * Math.PI/4, -1));
 
