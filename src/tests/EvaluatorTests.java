@@ -173,3 +173,30 @@ public class EvaluatorTests {
 	}
 
 }
+
+	@Test
+	public void testExpEvaluation() {
+		Exponent myTree = new Exponent(new X());
+		
+		// some straightforward tests (can be replaced by later lines)
+		assertEquals(new RGBColor(1, 1, 1), myTree.evaluate(0, -1));
+		assertEquals(new RGBColor(-1, -1, -1), myTree.evaluate(-1, -1));
+
+		// test the ints; remember that y's value doesn't matter
+		for (int i = -1; i <= 1; i++) {
+			double expOfTestVal = Math.exp(i);
+			assertEquals(new RGBColor(expOfTestVal, expOfTestVal, expOfTestVal), myTree.evaluate(i, -i));
+			assertEquals(new RGBColor(expOfTestVal, expOfTestVal, expOfTestVal), myTree.evaluate(i, i));
+		}
+
+		double[] tests = { -.5, -.1, .1, .5, 0};
+
+		for (double testVal : tests) {
+			double expOfTestVal = Math.exp(testVal);
+			assertEquals(new RGBColor(expOfTestVal, expOfTestVal, expOfTestVal), myTree.evaluate(testVal, -1));
+			assertEquals(new RGBColor(expOfTestVal, expOfTestVal, expOfTestVal),
+					myTree.evaluate(testVal, testVal));
+		}
+	}
+
+}
