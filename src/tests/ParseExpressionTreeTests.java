@@ -97,7 +97,7 @@ public class ParseExpressionTreeTests {
 		e = parser.makeExpression("exp( x + y )");
 		assertEquals(new Exponent(new Addition(new X(), new Y())), e);
 		
-		e = parser.makeExpression("floor(x) + y");
+		e = parser.makeExpression("exp(x) + y");
 		assertEquals(new Addition(new Exponent(new X()), new Y()), e);
 	}
 }
