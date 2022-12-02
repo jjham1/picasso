@@ -87,6 +87,16 @@ public class ParseExpressionTreeTests {
 		assertEquals(new Addition(new Cosine(new X()), new Y()), e);
 		
 	}
+	
+	@Test
+	public void tangentFunctionTests() {
+		ExpressionTreeNode e = parser.makeExpression("tan( x )");
+		assertEquals(new Tangent(new X()), e);
+		
+		e = parser.makeExpression("tan( x + y )");
+		assertEquals(new Tangent(new Addition(new X(), new Y())), e);
+		
+	}
 
 
 	@Test
