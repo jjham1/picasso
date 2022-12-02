@@ -6,6 +6,7 @@ import picasso.parser.language.ExpressionTreeNode;
 import picasso.parser.language.expressions.Cosine;
 import picasso.parser.tokens.Token;
 
+
 /**
  * Handles parsing the cos function.
  * 
