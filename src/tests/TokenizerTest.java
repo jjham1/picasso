@@ -105,10 +105,9 @@ public class TokenizerTest {
 	public void testTokenizeAddition() {
 		String expression = "x + y";
 		tokens = tokenizer.parseTokens(expression);
-		assertEquals(new PlusToken(), tokens.get(0));
-		assertEquals(new LeftParenToken(), tokens.get(1));
-		assertEquals(new IdentifierToken("+"), tokens.get(2));
-		assertEquals(new RightParenToken(), tokens.get(3));
+		assertEquals(new IdentifierToken("x"), tokens.get(0));
+		assertEquals(new PlusToken(), tokens.get(1));
+		assertEquals(new IdentifierToken("y"), tokens.get(2));
 	}
 
 }
