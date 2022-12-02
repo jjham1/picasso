@@ -2,6 +2,7 @@ package picasso.parser.language.expressions;
 
 import picasso.parser.language.ExpressionTreeNode;
 
+
 /**
  * Represents the cosine function in the Picasso language.
  * 
