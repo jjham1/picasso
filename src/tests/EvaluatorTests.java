@@ -118,7 +118,6 @@ public class EvaluatorTests {
 	}
 
 	@Test
-
 	public void testAbsEvaluation() {
 		Absolute myTree = new Absolute(new X());
 
