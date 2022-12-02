@@ -137,21 +137,12 @@ public class EvaluatorTests {
 		double[] tests = { -.7, -.00001, .000001, .5, 0};
 
 		for (double testVal : tests) {
-<<<<<<< HEAD
 			double absOfTestValue = Math.abs(testVal);
 			assertEquals(new RGBColor(absOfTestValue, absOfTestValue, absOfTestValue), myTree.evaluate(testVal, -1));
 			assertEquals(new RGBColor(absOfTestValue, absOfTestValue, absOfTestValue), myTree.evaluate(testVal, 1));
 		}
 	}
 
-=======
-			double cosOfTestVal = Math.abs(testVal);
-			assertEquals(new RGBColor(cosOfTestVal, cosOfTestVal, cosOfTestVal), myTree.evaluate(testVal, -1));
-			assertEquals(new RGBColor(cosOfTestVal, cosOfTestVal, cosOfTestVal), myTree.evaluate(testVal, 1));
-		}
-	}
-		      
->>>>>>> branch 'julie' of https://github.com/WLU-CSCI209-F22/picasso-mvps.git
 	public void testSineEvaluation() {
 		Sine myTree = new Sine(new X());
 
