@@ -100,10 +100,6 @@ public class EvaluatorTests {
 	public void testCosEvaluation() {
 		Cosine myTree = new Cosine(new X());
 
-		// some straightforward tests
-		assertEquals(new RGBColor(1, 1, 1), myTree.evaluate(0, -1));
-		assertEquals(new RGBColor(-1, -1, -1), myTree.evaluate(-1, -1));
-
 		// test the ints; remember that y's value doesn't matter
 		for (int i = -1; i <= 1; i++) {
 			double cosOfTestVal = Math.cos(i);
@@ -179,9 +175,6 @@ public class EvaluatorTests {
 	public void testExpEvaluation() {
 		Exponent myTree = new Exponent(new X());
 
-		// some straightforward tests (can be replaced by later lines)
-		assertEquals(new RGBColor(1, 1, 1), myTree.evaluate(0, -1));
-		assertEquals(new RGBColor(-1, -1, -1), myTree.evaluate(-1, -1));
 
 		// test the ints; remember that y's value doesn't matter
 		for (int i = -1; i <= 1; i++) {
