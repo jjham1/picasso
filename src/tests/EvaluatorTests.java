@@ -96,6 +96,7 @@ public class EvaluatorTests {
 	}
 	
 	@Test
+
 	public void testAbsEvaluation() {
 		Absolute myTree = new Absolute(new X());
 
@@ -118,6 +119,27 @@ public class EvaluatorTests {
 			double cosOfTestVal = Math.abs(testVal);
 			assertEquals(new RGBColor(cosOfTestVal, cosOfTestVal, cosOfTestVal), myTree.evaluate(testVal, -1));
 			assertEquals(new RGBColor(cosOfTestVal, cosOfTestVal, cosOfTestVal),
+      
+	public void testSineEvaluation() {
+		Sine myTree = new Sine(new X());
+
+		// some straightforward tests
+		assertEquals(new RGBColor(0, 0, 0), myTree.evaluate(.4, -1));
+		assertEquals(new RGBColor(0, 0, 0), myTree.evaluate(.999, -1));
+		assertEquals(new RGBColor(-1, -1, -1), myTree.evaluate(-.7, -1));
+
+		// test the ints; remember that y's value doesn't matter
+		for (int i = -1; i <= 1; i++) {
+			assertEquals(new RGBColor(i, i, i), myTree.evaluate(i, -i));
+			assertEquals(new RGBColor(i, i, i), myTree.evaluate(i, i));
+		}
+
+		double[] tests = { -.7, -.00001, .000001, .5 };
+
+		for (double testVal : tests) {
+			double SineOfTestVal = Math.sin(testVal);
+			assertEquals(new RGBColor(SineOfTestVal, SineOfTestVal, SineOfTestVal), myTree.evaluate(testVal, -1));
+			assertEquals(new RGBColor(SineOfTestVal, SineOfTestVal, SineOfTestVal),
 					myTree.evaluate(testVal, testVal));
 		}
 	}
