@@ -174,7 +174,6 @@ public class EvaluatorTests {
 		}
 	}
 
-}
 
 	@Test
 	public void testExpEvaluation() {
