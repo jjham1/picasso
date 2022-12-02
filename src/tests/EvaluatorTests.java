@@ -145,6 +145,10 @@ public class EvaluatorTests {
 			double cosOfTestVal = Math.abs(testVal);
 			assertEquals(new RGBColor(cosOfTestVal, cosOfTestVal, cosOfTestVal), myTree.evaluate(testVal, -1));
 			assertEquals(new RGBColor(cosOfTestVal, cosOfTestVal, cosOfTestVal),
+					myTree.evaluate(testVal, testVal));
+		}
+	}
+
       
 	public void testSineEvaluation() {
 		Sine myTree = new Sine(new X());
@@ -172,7 +176,6 @@ public class EvaluatorTests {
 		}
 	}
 
-}
 
 	@Test
 	public void testExpEvaluation() {
