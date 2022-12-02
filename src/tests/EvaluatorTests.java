@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package tests;
 
@@ -14,9 +14,9 @@ import picasso.parser.language.expressions.*;
 
 /**
  * Tests of the evaluation of x
- * 
+ *
  * @author Sara Sprenkle
- * 
+ *
  */
 public class EvaluatorTests {
 
@@ -95,14 +95,10 @@ public class EvaluatorTests {
 					myTree.evaluate(testVal, testVal));
 		}
 	}
-	
+
 	@Test
 	public void testCosEvaluation() {
 		Cosine myTree = new Cosine(new X());
-
-		// some straightforward tests
-		assertEquals(new RGBColor(1, 1, 1), myTree.evaluate(0, -1));
-		assertEquals(new RGBColor(-1, -1, -1), myTree.evaluate(-1, -1));
 
 		// test the ints; remember that y's value doesn't matter
 		for (int i = -1; i <= 1; i++) {
@@ -120,7 +116,7 @@ public class EvaluatorTests {
 					myTree.evaluate(testVal, testVal));
 		}
 	}
-	
+
 	@Test
 
 	public void testAbsEvaluation() {
@@ -142,12 +138,16 @@ public class EvaluatorTests {
 		double[] tests = { -.7, -.00001, .000001, .5, 0};
 
 		for (double testVal : tests) {
-			double cosOfTestVal = Math.abs(testVal);
-			assertEquals(new RGBColor(cosOfTestVal, cosOfTestVal, cosOfTestVal), myTree.evaluate(testVal, -1));
-			assertEquals(new RGBColor(cosOfTestVal, cosOfTestVal, cosOfTestVal), myTree.evaluate(testVal, -1));
+
+      
+
+			double absOfTestValue = Math.abs(testVal);
+			assertEquals(new RGBColor(absOfTestValue, absOfTestValue, absOfTestValue), myTree.evaluate(testVal, -1));
+			assertEquals(new RGBColor(absOfTestValue, absOfTestValue, absOfTestValue), myTree.evaluate(testVal, 1));
 		}
 	}
-      
+
+
 	public void testSineEvaluation() {
 		Sine myTree = new Sine(new X());
 
@@ -172,17 +172,14 @@ public class EvaluatorTests {
 			assertEquals(new RGBColor(SineOfTestVal, SineOfTestVal, SineOfTestVal),
 					myTree.evaluate(testVal, testVal));
 		}
+		}
 	
 
-}
 
 	@Test
 	public void testExpEvaluation() {
 		Exponent myTree = new Exponent(new X());
-		
-		// some straightforward tests (can be replaced by later lines)
-		assertEquals(new RGBColor(1, 1, 1), myTree.evaluate(0, -1));
-		assertEquals(new RGBColor(-1, -1, -1), myTree.evaluate(-1, -1));
+
 
 		// test the ints; remember that y's value doesn't matter
 		for (int i = -1; i <= 1; i++) {

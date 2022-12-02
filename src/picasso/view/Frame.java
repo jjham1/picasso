@@ -3,6 +3,8 @@ package picasso.view;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import javax.swing.JFrame;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
 
 import picasso.model.Pixmap;
 import picasso.util.ThreadedCommand;
@@ -12,10 +14,15 @@ import picasso.view.commands.*;
  * Main container for the Picasso application
  *
  * @author Robert Duvall (rcd@cs.duke.edu)
- * 
+ *
  */
 @SuppressWarnings("serial")
 public class Frame extends JFrame {
+
+	static JTextArea foo;
+	static JTextField bar;
+
+
 	public Frame(Dimension size) {
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 
@@ -29,9 +36,29 @@ public class Frame extends JFrame {
 		commands.add("Evaluate", new ThreadedCommand<Pixmap>(canvas, new Evaluator()));
 		commands.add("Save", new Writer());
 
-		// add our container to Frame and show it
+
+		// add the text field
+		foo = new JTextArea(100,100);
+		bar = new JTextField(100);
+
+		// add the text field
+		foo = new JTextArea(100,100);
+		bar = new JTextField(100);
+
+		// add our text container to Frame and show it
 		getContentPane().add(canvas, BorderLayout.CENTER);
 		getContentPane().add(commands, BorderLayout.NORTH);
+		getContentPane().add(foo, BorderLayout.SOUTH);
+		getContentPane().add(bar, BorderLayout.SOUTH);
 		pack();
 	}
+
+
+	public static JTextField getBar() {
+		return bar;
+	}
+
+
+
+
 }

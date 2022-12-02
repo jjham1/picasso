@@ -7,10 +7,11 @@ import picasso.model.Pixmap;
 import picasso.parser.ExpressionTreeGenerator;
 import picasso.parser.language.ExpressionTreeNode;
 import picasso.util.Command;
+import picasso.view.Frame;
 
 /**
  * Evaluate an expression for each pixel in a image.
- * 
+ *
  * @author Robert C Duvall
  * @author Sara Sprenkle
  */
@@ -45,7 +46,7 @@ public class Evaluator implements Command<Pixmap> {
 	}
 
 	/**
-	 * 
+	 *
 	 * A place holder for a more interesting way to build the expression.
 	 */
 	private ExpressionTreeNode createExpression() {
@@ -61,9 +62,10 @@ public class Evaluator implements Command<Pixmap> {
 //		String test = "floor(y)";
 
 		//String test = "x + y";
-		String test = "cos(x)";
+		//String test = "cos(x)";
 //		String test = "abs(x)";
 //		String test = "abs(y)";
+		String test = Frame.getBar().getText();
 
 		ExpressionTreeGenerator expTreeGen = new ExpressionTreeGenerator();
 		return expTreeGen.makeExpression(test);

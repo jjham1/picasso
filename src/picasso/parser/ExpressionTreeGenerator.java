@@ -48,6 +48,7 @@ public class ExpressionTreeGenerator {
 
 		// Is this the best place to put this check?
 		if (!postfix.isEmpty()) {
+			System.out.println(postfix.toString());
 			throw new ParseException(
 					"Extra operands without operators or functions");
 		}
