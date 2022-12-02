@@ -96,6 +96,9 @@ public class ParseExpressionTreeTests {
 		e = parser.makeExpression("tan( x + y )");
 		assertEquals(new Tangent(new Addition(new X(), new Y())), e);
 		
+		e = parser.makeExpression("tan(x) + y");
+		assertEquals(new Addition(new Tangent(new X()), new Y()), e);
+		
 	}
 
 
