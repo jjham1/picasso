@@ -74,5 +74,16 @@ public class ParseExpressionTreeTests {
 		e = parser.makeExpression("floor(x) + y");
 		assertEquals(new Addition(new Floor(new X()), new Y()), e);
 	}
+	
+	@Test
+	public void exponentFunctionTests() {
+		ExpressionTreeNode e = parser.makeExpression("exp( x )");
+		assertEquals(new Exponent(new X()), e);
 
+		e = parser.makeExpression("exp( x + y )");
+		assertEquals(new Exponent(new Addition(new X(), new Y())), e);
+		
+		e = parser.makeExpression("floor(x) + y");
+		assertEquals(new Addition(new Exponent(new X()), new Y()), e);
+	}
 }
