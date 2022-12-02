@@ -38,6 +38,7 @@ public class Pixmap {
 	public static final String DEFAULT_NAME = "Picasso";
 	public static final String TEAM_NAME = "MVP's Picasso";
 
+
 	private String myFileName;
 	private BufferedImage myImage;
 	private Dimension mySize;
