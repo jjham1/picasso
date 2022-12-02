@@ -27,9 +27,9 @@ public class Exponent extends UnaryFunction {
 	@Override
 	public RGBColor evaluate(double x, double y) {
 		RGBColor result = param.evaluate(x, y);
-		double red = Math.exponent(result.getRed());
-		double green = Math.exponent(result.getGreen());
-		double blue = Math.exponent(result.getBlue());
+		double red = Math.exp(result.getRed());
+		double green = Math.exp(result.getGreen());
+		double blue = Math.exp(result.getBlue());
 
 		return new RGBColor(red, green, blue);
 	}
