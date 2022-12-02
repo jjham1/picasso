@@ -70,6 +70,9 @@ public class ParseExpressionTreeTests {
 
 		e = parser.makeExpression("floor( x + y )");
 		assertEquals(new Floor(new Addition(new X(), new Y())), e);
+		
+		e = parser.makeExpression("floor(x) + y");
+		assertEquals(new Addition(new Floor(new X()), new Y()), e);
 	}
 
 }
