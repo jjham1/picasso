@@ -77,7 +77,7 @@ public class ParseExpressionTreeTests {
 		
 	@Test
 	public void absFunctionTests() {
-		ExpressionTreeNode e = parser.makeExpression("cos(x))");
+		ExpressionTreeNode e = parser.makeExpression("cos(x)");
 		assertEquals(new Cosine(new X()), e);
 		
 		e = parser.makeExpression("cos(x+y)");
