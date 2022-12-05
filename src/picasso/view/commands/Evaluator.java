@@ -8,7 +8,7 @@ import picasso.parser.ExpressionTreeGenerator;
 import picasso.parser.language.ExpressionTreeNode;
 import picasso.util.Command;
 import picasso.view.Frame;
-import picasso.view.KeyEvent;
+//import picasso.view.KeyEvent;
 
 /**
  * Evaluate an expression for each pixel in a image.
