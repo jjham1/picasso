@@ -5,6 +5,9 @@ import java.awt.Dimension;
 import javax.swing.JFrame;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.KeyListener;
 
 import picasso.model.Pixmap;
 import picasso.util.ThreadedCommand;
@@ -19,9 +22,8 @@ import picasso.view.commands.*;
 @SuppressWarnings("serial")
 public class Frame extends JFrame {
 
-	static JTextArea foo;
-	static JTextField bar;
-
+	static JTextArea foo = new JTextArea();
+	static JTextField bar = new JTextField();
 
 	public Frame(Dimension size) {
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -36,29 +38,30 @@ public class Frame extends JFrame {
 		commands.add("Evaluate", new ThreadedCommand<Pixmap>(canvas, new Evaluator()));
 		commands.add("Save", new Writer());
 
-
-		// add the text field
-		foo = new JTextArea(100,100);
-		bar = new JTextField(100);
-
-		// add the text field
-		foo = new JTextArea(100,100);
-		bar = new JTextField(100);
-
 		// add our text container to Frame and show it
 		getContentPane().add(canvas, BorderLayout.CENTER);
 		getContentPane().add(commands, BorderLayout.NORTH);
 		getContentPane().add(foo, BorderLayout.SOUTH);
 		getContentPane().add(bar, BorderLayout.SOUTH);
+		
+		// create an ActionListener
+		ActionListener actionListener = new ActionListener() {
+			public void actionPerformed(ActionEvent actionEvent) {
+				// the enter key has been pressed
+				if (actionEvent.getSource() == bar) {
+					new Evaluator().execute(canvas.getPixmap());
+					canvas.refresh();
+				}
+			}
+		};
+		
+		bar.addActionListener(actionListener);
 		pack();
+
 	}
-
-
-	public static JTextField getBar() {
-		return bar;
+	
+	public static String getBar() {
+		return bar.getText();
 	}
-
-
-
-
+		
 }
