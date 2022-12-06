@@ -77,7 +77,7 @@ public class ParseExpressionTreeTests {
 		
 	@Test
 	public void absFunctionTests() {
-		ExpressionTreeNode e = parser.makeExpression("cos(x))");
+		ExpressionTreeNode e = parser.makeExpression("cos(x)");
 		assertEquals(new Cosine(new X()), e);
 		
 		e = parser.makeExpression("cos(x+y)");
@@ -85,6 +85,19 @@ public class ParseExpressionTreeTests {
 		
 		e = parser.makeExpression("cos(x) + y");
 		assertEquals(new Addition(new Cosine(new X()), new Y()), e);
+		
+	}
+	
+	@Test
+	public void tangentFunctionTests() {
+		ExpressionTreeNode e = parser.makeExpression("tan( x )");
+		assertEquals(new Tangent(new X()), e);
+		
+		e = parser.makeExpression("tan( x + y )");
+		assertEquals(new Tangent(new Addition(new X(), new Y())), e);
+		
+		e = parser.makeExpression("tan(x) + y");
+		assertEquals(new Addition(new Tangent(new X()), new Y()), e);
 		
 	}
 

@@ -137,11 +137,15 @@ public class EvaluatorTests {
 		double[] tests = { -.7, -.00001, .000001, .5, 0};
 
 		for (double testVal : tests) {
+
+      
+
 			double absOfTestValue = Math.abs(testVal);
 			assertEquals(new RGBColor(absOfTestValue, absOfTestValue, absOfTestValue), myTree.evaluate(testVal, -1));
 			assertEquals(new RGBColor(absOfTestValue, absOfTestValue, absOfTestValue), myTree.evaluate(testVal, 1));
 		}
 	}
+
 
 	public void testSineEvaluation() {
 		Sine myTree = new Sine(new X());
@@ -167,7 +171,8 @@ public class EvaluatorTests {
 			assertEquals(new RGBColor(SineOfTestVal, SineOfTestVal, SineOfTestVal),
 					myTree.evaluate(testVal, testVal));
 		}
-	}
+		}
+	
 
 
 	@Test
