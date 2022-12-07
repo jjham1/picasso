@@ -2,3 +2,5 @@
 -=Minus
 *=Times
 /=Divide
+%=Modulo
+^=Exponentiate
