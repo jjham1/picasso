@@ -109,7 +109,52 @@ public class TokenizerTest {
 		assertEquals(new PlusToken(), tokens.get(1));
 		assertEquals(new IdentifierToken("y"), tokens.get(2));
 	}
-
+	
+	@Test
+	public void testTokenizeSubtraction() {
+		String expression = "x - y";
+		tokens = tokenizer.parseTokens(expression);
+		assertEquals(new IdentifierToken("x"), tokens.get(0));
+		assertEquals(new MinusToken(), tokens.get(1));
+		assertEquals(new IdentifierToken("y"), tokens.get(2));
+	}
+	
+	@Test
+	public void testTokenizeMuiltiplication() {
+		String expression = "x * y";
+		tokens = tokenizer.parseTokens(expression);
+		assertEquals(new IdentifierToken("x"), tokens.get(0));
+		assertEquals(new TimesToken(), tokens.get(1));
+		assertEquals(new IdentifierToken("y"), tokens.get(2));
+	}
+	
+	@Test
+	public void testTokenizeDivision() {
+		String expression = "x / y";
+		tokens = tokenizer.parseTokens(expression);
+		assertEquals(new IdentifierToken("x"), tokens.get(0));
+		assertEquals(new DivideToken(), tokens.get(1));
+		assertEquals(new IdentifierToken("y"), tokens.get(2));
+	}
+	
+	@Test
+	public void testTokenizeExponentiate() {
+		String expression = "x ^ y";
+		tokens = tokenizer.parseTokens(expression);
+		assertEquals(new IdentifierToken("x"), tokens.get(0));
+		assertEquals(new ExponentiateToken(), tokens.get(1));
+		assertEquals(new IdentifierToken("y"), tokens.get(2));
+	}
+	
+	@Test
+	public void testTokenizeModulo() {
+		String expression = "x % y";
+		tokens = tokenizer.parseTokens(expression);
+		assertEquals(new IdentifierToken("x"), tokens.get(0));
+		assertEquals(new ModuloToken(), tokens.get(1));
+		assertEquals(new IdentifierToken("y"), tokens.get(2));
+	}
+//end binary 
 	@Test
 	public void testTokenizeExponent() {
 		String expression = "exp(x)";

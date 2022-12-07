@@ -37,7 +37,7 @@ public class ParseExpressionTreeTests {
 		ExpressionTreeNode e = parser.makeExpression("x");
 		assertEquals(new X(), e);
 	}
-
+//binary tests
 	@Test
 	public void additionExpressionTests() {
 		ExpressionTreeNode e = parser.makeExpression("x + y");
@@ -55,6 +55,87 @@ public class ParseExpressionTreeTests {
 	}
 
 	@Test
+	public void subtractionExpressionTests() {
+		ExpressionTreeNode e = parser.makeExpression("x - y");
+		assertEquals(new Subtraction(new X(), new Y()), e);
+		
+		// no spaces!
+		e = parser.makeExpression("x-y");
+		assertEquals(new Subtraction(new X(), new Y()), e);
+
+		e = parser.makeExpression("[1,.3,-1] - y");
+		assertEquals(new Subtraction(new RGBColor(1, .3, -1), new Y()), e);
+		
+		e = parser.makeExpression("x - y - [ -.51, 0, 1]");
+		assertEquals(new Subtraction(new Subtraction(new X(), new Y()), new RGBColor(-.51, 0, 1)), e);
+	}
+	
+	@Test
+	public void multiplicationExpressionTests() {
+		ExpressionTreeNode e = parser.makeExpression("x * y");
+		assertEquals(new Multiplication(new X(), new Y()), e);
+		
+		// no spaces!
+		e = parser.makeExpression("x*y");
+		assertEquals(new Multiplication(new X(), new Y()), e);
+
+		e = parser.makeExpression("[1,.3,-1] * y");
+		assertEquals(new Multiplication(new RGBColor(1, .3, -1), new Y()), e);
+		
+		e = parser.makeExpression("x * y * [ -.51, 0, 1]");
+		assertEquals(new Multiplication(new Multiplication(new X(), new Y()), new RGBColor(-.51, 0, 1)), e);
+	}
+	
+	@Test
+	public void divisionExpressionTests() {
+		ExpressionTreeNode e = parser.makeExpression("x / y");
+		assertEquals(new Division(new X(), new Y()), e);
+		
+		// no spaces!
+		e = parser.makeExpression("x/y");
+		assertEquals(new Division(new X(), new Y()), e);
+
+		e = parser.makeExpression("[1,.3,-1] / y");
+		assertEquals(new Division(new RGBColor(1, .3, -1), new Y()), e);
+		
+		e = parser.makeExpression("x / y / [ -.51, 0, 1]");
+		assertEquals(new Division(new Division(new X(), new Y()), new RGBColor(-.51, 0, 1)), e);
+	}
+	
+	@Test
+	public void exponentiateExpressionTests() {
+		ExpressionTreeNode e = parser.makeExpression("x ^ y");
+		assertEquals(new Exponentiate(new X(), new Y()), e);
+		
+		// no spaces!
+		e = parser.makeExpression("x^y");
+		assertEquals(new Exponentiate(new X(), new Y()), e);
+
+		e = parser.makeExpression("[1,.3,-1] ^ y");
+		assertEquals(new Exponentiate(new RGBColor(1, .3, -1), new Y()), e);
+		
+		e = parser.makeExpression("x ^ y ^ [ -.51, 0, 1]");
+		assertEquals(new Exponentiate(new Exponentiate(new X(), new Y()), new RGBColor(-.51, 0, 1)), e);
+	}
+	
+	@Test
+	public void moduloExpressionTests() {
+		ExpressionTreeNode e = parser.makeExpression("x % y");
+		assertEquals(new Modulo(new X(), new Y()), e);
+		
+		// no spaces!
+		e = parser.makeExpression("x%y");
+		assertEquals(new Modulo(new X(), new Y()), e);
+
+		e = parser.makeExpression("[1,.3,-1] % y");
+		assertEquals(new Modulo(new RGBColor(1, .3, -1), new Y()), e);
+		
+		e = parser.makeExpression("x % y % [ -.51, 0, 1]");
+		assertEquals(new Modulo(new Modulo(new X(), new Y()), new RGBColor(-.51, 0, 1)), e);
+	}
+
+//paren test	
+	@Test
 	public void parenthesesExpressionTests() {
 		ExpressionTreeNode e = parser.makeExpression("( x + y )");
 		assertEquals(new Addition(new X(), new Y()), e);
@@ -62,7 +143,7 @@ public class ParseExpressionTreeTests {
 		e = parser.makeExpression("( x + (y + [ 1, 1, 1] ) )");
 		assertEquals(new Addition(new X(), new Addition(new Y(), new RGBColor(1, 1, 1))), e);
 	}
-
+//unary tests
 	@Test
 	public void floorFunctionTests() {
 		ExpressionTreeNode e = parser.makeExpression("floor( x )");
@@ -128,6 +209,12 @@ public class ParseExpressionTreeTests {
 		
 		e = parser.makeExpression("(y / x + y)");
 		assertEquals(new Addition(new Division (new Y(), new X()), new Y()), e);
+		
+		e = parser.makeExpression("(y * x - y)");
+		assertEquals(new Subtraction(new Multiplication (new Y(), new X()), new Y()), e);
+		
+		e = parser.makeExpression("(x - y / x)");
+		assertEquals(new Subtraction(new X(), new Division (new Y(), new X())), e);
 				
 		
 	}
