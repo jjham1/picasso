@@ -113,4 +113,22 @@ public class ParseExpressionTreeTests {
 		e = parser.makeExpression("exp(x) + y");
 		assertEquals(new Addition(new Exponent(new X()), new Y()), e);
 	}
+	
+	@Test
+	//Add more tests
+	public void orderOfOperationsTest() {
+		ExpressionTreeNode e = parser.makeExpression("(x + y * x)");
+		assertEquals(new Addition(new X(), new Multiplication (new Y(), new X())), e);
+		
+		e = parser.makeExpression("(y * x + y)");
+		assertEquals(new Addition(new Multiplication (new Y(), new X()), new Y()), e);
+		
+		e = parser.makeExpression("(x + y / x)");
+		assertEquals(new Addition(new X(), new Division (new Y(), new X())), e);
+		
+		e = parser.makeExpression("(y / x + y)");
+		assertEquals(new Addition(new Division (new Y(), new X()), new Y()), e);
+				
+		
+	}
 }
