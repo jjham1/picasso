@@ -24,6 +24,7 @@ public class Frame extends JFrame {
 
 	static JTextArea foo = new JTextArea();
 	static JTextField bar = new JTextField();
+	
 
 	public Frame(Dimension size) {
 		setDefaultCloseOperation(EXIT_ON_CLOSE);

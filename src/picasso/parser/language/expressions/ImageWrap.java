@@ -1,14 +1,17 @@
 package picasso.parser.language.expressions;
 
+import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
+import picasso.model.Pixmap;
 import picasso.parser.language.ExpressionTreeNode;
+import picasso.view.Canvas;
+import picasso.view.Frame;
 
 
 public class ImageWrap extends ExpressionTreeNode {
@@ -22,7 +25,6 @@ public class ImageWrap extends ExpressionTreeNode {
 	private BufferedImage myImage;
 	private Dimension mySize;
 	
-	private Graphics g;
 
 	public ImageWrap(String fileName, ExpressionTreeNode x, ExpressionTreeNode y) {
 		//process image in constructor
@@ -31,18 +33,37 @@ public class ImageWrap extends ExpressionTreeNode {
 		this.xFunc = x;
 		this.yFunc = y;
 	}
+	
 
 	@Override
 	public RGBColor evaluate(double x, double y) {
-		double wrappedX = wrap(x);
-		double wrappedY = wrap(y);
 		
-		RGBColor xResult = xFunc.evaluate(wrappedX, wrappedY); //create a wrap function, test each part using easy colors
-		//RGBColor yResult = yFunc.evaluate(wrappedX, wrappedY);
 		
+		RGBColor xResult = xFunc.evaluate(x, y); //create a wrap function, test each part using easy colors
+		double newX = xResult.getRed();
+		double wrappedX = wrap(newX);
+		
+		RGBColor yResult = yFunc.evaluate(x, y);
+		double newY = yResult.getRed();
+		double wrappedY = wrap(newY);
 
-		return xResult;
+		//return new RGBColor(result.getRed(), result.getGreen(), result.getBlue());
+		
+		return new RGBColor(new Color(myImage.getRGB
+				(domainToImageScale(wrappedX, myImage.getWidth()), 
+						domainToImageScale(wrappedY, myImage.getHeight()))));
+		
+				
 	}
+	
+	public int domainToImageScale(double value, int bound) { 
+		
+		int center = (bound -1)/2;
+		return (int) (value * center) + center;
+		
+	}
+	
+	
 	
 	/**
 	 * Creates a function that wraps the numbers
@@ -50,16 +71,14 @@ public class ImageWrap extends ExpressionTreeNode {
 	 * @param x		the coord after manipulating expression
 	 */
 	public double wrap(double x) {
-		double moddedX = x % 3;
 		
+		double moddedX = x % 2;
 		if (moddedX < -1) {
-			moddedX += 2;
+			return moddedX + 2;
 		}
-		
 		if (moddedX > 1) {
-			moddedX -= 2;
+			return moddedX - 2;
 		}
-		
 		return moddedX;
 	}
 	
@@ -74,7 +93,7 @@ public class ImageWrap extends ExpressionTreeNode {
 			myFileName = fileName;
 			myImage = ImageIO.read(new File(myFileName));
 			mySize = new Dimension(myImage.getWidth(), myImage.getHeight());
-			//g.drawImage(myImage, 0, 0, mySize.width, mySize.height, null);
+			
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

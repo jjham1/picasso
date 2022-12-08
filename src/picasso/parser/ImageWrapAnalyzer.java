@@ -20,6 +20,7 @@ public class ImageWrapAnalyzer implements SemanticAnalyzerInterface {
 				tokens);
 		
 		return new ImageWrap(null, newExpressionTreeX, newExpressionTreeY);
+		
 	}
 
 }
