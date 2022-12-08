@@ -355,4 +355,6 @@ public class EvaluatorTests {
 		}
 	}
 
+	//Add for binary?
+	
 }
