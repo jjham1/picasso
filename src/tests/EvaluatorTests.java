@@ -196,5 +196,163 @@ public class EvaluatorTests {
 					myTree.evaluate(testVal, testVal));
 		}
 	}
+	
+	@Test
+	public void testCeilEvaluation() {
+		Ceil myTree = new Ceil(new X());
+
+		// some straightforward tests
+		assertEquals(new RGBColor(0, 0, 0), myTree.evaluate(.4, -1));
+		assertEquals(new RGBColor(0, 0, 0), myTree.evaluate(.999, -1));
+		assertEquals(new RGBColor(-1, -1, -1), myTree.evaluate(-.7, -1));
+
+		// test the ints; remember that y's value doesn't matter
+		for (int i = -1; i <= 1; i++) {
+			assertEquals(new RGBColor(i, i, i), myTree.evaluate(i, -i));
+			assertEquals(new RGBColor(i, i, i), myTree.evaluate(i, i));
+		}
+
+		double[] tests = { -.7, -.00001, .000001, .5 };
+
+		for (double testVal : tests) {
+			double ceilOfTestVal = Math.ceil(testVal);
+			assertEquals(new RGBColor(ceilOfTestVal, ceilOfTestVal, ceilOfTestVal), myTree.evaluate(testVal, -1));
+			assertEquals(new RGBColor(ceilOfTestVal, ceilOfTestVal, ceilOfTestVal),
+					myTree.evaluate(testVal, testVal));
+		}
+	}
+	
+	@Test
+	public void testClampEvaluation() {
+		Clamp myTree = new Clamp(new X());
+
+		// some straightforward tests
+		assertEquals(new RGBColor(0, 0, 0), myTree.evaluate(.4, -1));
+		assertEquals(new RGBColor(0, 0, 0), myTree.evaluate(.999, -1));
+		assertEquals(new RGBColor(-1, -1, -1), myTree.evaluate(-.7, -1));
+
+		// test the ints; remember that y's value doesn't matter
+		for (int i = -1; i <= 1; i++) {
+			assertEquals(new RGBColor(i, i, i), myTree.evaluate(i, -i));
+			assertEquals(new RGBColor(i, i, i), myTree.evaluate(i, i));
+		}
+
+		double[] tests = { -.7, -.00001, .000001, .5 };
+
+		for (double testVal : tests) {
+			double ClampOfTestVal = Math.max(-1, Math.min(1, testVal));
+			assertEquals(new RGBColor(ClampOfTestVal, ClampOfTestVal, ClampOfTestVal), myTree.evaluate(testVal, -1));
+			assertEquals(new RGBColor(ClampOfTestVal, ClampOfTestVal, ClampOfTestVal),
+					myTree.evaluate(testVal, testVal));
+		}
+	}
+	
+	@Test
+	public void testWrapEvaluation() {
+		Wrap myTree = new Wrap(new X());
+
+		// some straightforward tests
+		assertEquals(new RGBColor(0, 0, 0), myTree.evaluate(.4, -1));
+		assertEquals(new RGBColor(0, 0, 0), myTree.evaluate(.999, -1));
+		assertEquals(new RGBColor(-1, -1, -1), myTree.evaluate(-.7, -1));
+
+		// test the ints; remember that y's value doesn't matter
+		for (int i = -1; i <= 1; i++) {
+			assertEquals(new RGBColor(i, i, i), myTree.evaluate(i, -i));
+			assertEquals(new RGBColor(i, i, i), myTree.evaluate(i, i));
+		}
+
+		double[] tests = { -.7, -.00001, .000001, .5 };
+
+		for (double testVal : tests) {
+			// need to fix wrap
+			double WrapOfTestVal = Math.max(-1, Math.min(1, testVal));
+			assertEquals(new RGBColor(WrapOfTestVal, WrapOfTestVal, WrapOfTestVal), myTree.evaluate(testVal, -1));
+			assertEquals(new RGBColor(WrapOfTestVal, WrapOfTestVal, WrapOfTestVal),
+					myTree.evaluate(testVal, testVal));
+		}
+	}
+	
+	@Test
+	public void testATanEvaluation() {
+		Atan myTree = new Atan(new X());
+
+		// some straightforward tests
+		assertEquals(new RGBColor(0, 0, 0), myTree.evaluate(.4, -1));
+		assertEquals(new RGBColor(0, 0, 0), myTree.evaluate(.999, -1));
+		assertEquals(new RGBColor(-1, -1, -1), myTree.evaluate(-.7, -1));
+
+		// test the ints; remember that y's value doesn't matter
+		for (int i = -1; i <= 1; i++) {
+			assertEquals(new RGBColor(i, i, i), myTree.evaluate(i, -i));
+			assertEquals(new RGBColor(i, i, i), myTree.evaluate(i, i));
+		}
+
+		double[] tests = { -.7, -.00001, .000001, .5 };
+
+		for (double testVal : tests) {
+			double AtanOfTestVal = Math.atan(testVal);
+			assertEquals(new RGBColor(AtanOfTestVal, AtanOfTestVal, AtanOfTestVal), myTree.evaluate(testVal, -1));
+			assertEquals(new RGBColor(AtanOfTestVal, AtanOfTestVal, AtanOfTestVal),
+					myTree.evaluate(testVal, testVal));
+		}
+	}
+	
+	@Test
+	public void testLogEvaluation() {
+		Log myTree = new Log(new X());
+
+		// some straightforward tests
+		assertEquals(new RGBColor(0, 0, 0), myTree.evaluate(.4, -1));
+		assertEquals(new RGBColor(0, 0, 0), myTree.evaluate(.999, -1));
+		assertEquals(new RGBColor(-1, -1, -1), myTree.evaluate(-.7, -1));
+
+		// test the ints; remember that y's value doesn't matter
+		for (int i = -1; i <= 1; i++) {
+			assertEquals(new RGBColor(i, i, i), myTree.evaluate(i, -i));
+			assertEquals(new RGBColor(i, i, i), myTree.evaluate(i, i));
+		}
+
+		double[] tests = { -.7, -.00001, .000001, .5 };
+
+		for (double testVal : tests) {
+			double LogOfTestVal = Math.log(Math.abs(testVal));
+			assertEquals(new RGBColor(LogOfTestVal, LogOfTestVal, LogOfTestVal), myTree.evaluate(testVal, -1));
+			assertEquals(new RGBColor(LogOfTestVal, LogOfTestVal, LogOfTestVal),
+					myTree.evaluate(testVal, testVal));
+		}
+	}
+	
+	@Test
+	public void testRgbToYCrCbEvaluation() {
+		RgbToYCrCb myTree = new RgbToYCrCb(new X());
+
+		// some straightforward tests
+		assertEquals(new RGBColor(0, 0, 0), myTree.evaluate(.4, -1));
+		assertEquals(new RGBColor(0, 0, 0), myTree.evaluate(.999, -1));
+		assertEquals(new RGBColor(-1, -1, -1), myTree.evaluate(-.7, -1));
+
+		// test the ints; remember that y's value doesn't matter
+		for (int i = -1; i <= 1; i++) {
+			assertEquals(new RGBColor(i, i, i), myTree.evaluate(i, -i));
+			assertEquals(new RGBColor(i, i, i), myTree.evaluate(i, i));
+		}
+	}
+	
+	@Test
+	public void testYCrCbToRGBbEvaluation() {
+		YCrCbToRGB myTree = new YCrCbToRGB(new X());
+
+		// some straightforward tests
+		assertEquals(new RGBColor(0, 0, 0), myTree.evaluate(.4, -1));
+		assertEquals(new RGBColor(0, 0, 0), myTree.evaluate(.999, -1));
+		assertEquals(new RGBColor(-1, -1, -1), myTree.evaluate(-.7, -1));
+
+		// test the ints; remember that y's value doesn't matter
+		for (int i = -1; i <= 1; i++) {
+			assertEquals(new RGBColor(i, i, i), myTree.evaluate(i, -i));
+			assertEquals(new RGBColor(i, i, i), myTree.evaluate(i, i));
+		}
+	}
 
 }
