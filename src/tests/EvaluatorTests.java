@@ -354,7 +354,5 @@ public class EvaluatorTests {
 			assertEquals(new RGBColor(i, i, i), myTree.evaluate(i, i));
 		}
 	}
-
-	//Add for binary?
 	
 }
