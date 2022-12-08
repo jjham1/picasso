@@ -196,6 +196,113 @@ public class ParseExpressionTreeTests {
 	}
 	
 	@Test
+	public void ceilFunctionTests() {
+		ExpressionTreeNode e = parser.makeExpression("ceil( x )");
+		assertEquals(new Exponent(new X()), e);
+
+		e = parser.makeExpression("ceil( x + y )");
+		assertEquals(new Ceil(new Addition(new X(), new Y())), e);
+		
+		e = parser.makeExpression("ceil(x) + y");
+		assertEquals(new Addition(new Ceil(new X()), new Y()), e);
+	}
+	
+	@Test
+	public void clampFunctionTests() {
+		ExpressionTreeNode e = parser.makeExpression("clamp( x )");
+		assertEquals(new Clamp(new X()), e);
+
+		e = parser.makeExpression("clamp( x + y )");
+		assertEquals(new Clamp(new Addition(new X(), new Y())), e);
+		
+		e = parser.makeExpression("clamp(x) + y");
+		assertEquals(new Addition(new Clamp(new X()), new Y()), e);
+	}
+	
+	@Test
+	public void wrapFunctionTests() {
+		ExpressionTreeNode e = parser.makeExpression("wrap( x )");
+		assertEquals(new Wrap(new X()), e);
+
+		e = parser.makeExpression("wrap( x + y )");
+		assertEquals(new Wrap(new Addition(new X(), new Y())), e);
+		
+		e = parser.makeExpression("wrap(x) + y");
+		assertEquals(new Addition(new Wrap(new X()), new Y()), e);
+	}
+	
+	@Test
+	public void sineFunctionTests() {
+		ExpressionTreeNode e = parser.makeExpression("sin( x )");
+		assertEquals(new Sine(new X()), e);
+
+		e = parser.makeExpression("sin( x + y )");
+		assertEquals(new Sine(new Addition(new X(), new Y())), e);
+		
+		e = parser.makeExpression("sin(x) + y");
+		assertEquals(new Addition(new Sine(new X()), new Y()), e);
+	}
+	
+	@Test
+	public void cosFunctionTests() {
+		ExpressionTreeNode e = parser.makeExpression("cos( x )");
+		assertEquals(new Cosine(new X()), e);
+
+		e = parser.makeExpression("cos( x + y )");
+		assertEquals(new Cosine(new Addition(new X(), new Y())), e);
+		
+		e = parser.makeExpression("cos(x) + y");
+		assertEquals(new Addition(new Cosine(new X()), new Y()), e);
+	}
+	
+	@Test
+	public void aTanFunctionTests() {
+		ExpressionTreeNode e = parser.makeExpression("atan( x )");
+		assertEquals(new Atan(new X()), e);
+
+		e = parser.makeExpression("atan( x + y )");
+		assertEquals(new Atan(new Addition(new X(), new Y())), e);
+		
+		e = parser.makeExpression("atan(x) + y");
+		assertEquals(new Addition(new Atan(new X()), new Y()), e);
+	}
+	
+	@Test
+	public void LogFunctionTests() {
+		ExpressionTreeNode e = parser.makeExpression("log( x )");
+		assertEquals(new Log(new X()), e);
+
+		e = parser.makeExpression("log( x + y )");
+		assertEquals(new Log(new Addition(new X(), new Y())), e);
+		
+		e = parser.makeExpression("log(x) + y");
+		assertEquals(new Addition(new Log(new X()), new Y()), e);
+	}
+	
+	@Test
+	public void rgbToYCrCbFunctionTests() {
+		ExpressionTreeNode e = parser.makeExpression("rgbToYCrCb( x )");
+		assertEquals(new RgbToYCrCb(new X()), e);
+
+		e = parser.makeExpression("rgbToYCrCb( x + y )");
+		assertEquals(new RgbToYCrCb(new Addition(new X(), new Y())), e);
+		
+		e = parser.makeExpression("rgbToYCrCb(x) + y");
+		assertEquals(new Addition(new RgbToYCrCb(new X()), new Y()), e);
+	}
+	
+	
+	@Test
+	public void yCrCbToRGBFunctionTests() {
+		ExpressionTreeNode e = parser.makeExpression("yCrCbToRGB( x )");
+		assertEquals(new YCrCbToRGB(new X()), e);
+
+		e = parser.makeExpression("yCrCbToRGB( x + y )");
+		assertEquals(new YCrCbToRGB(new Addition(new X(), new Y())), e);
+		
+		e = parser.makeExpression("yCrCbToRGB(x) + y");
+		assertEquals(new Addition(new YCrCbToRGB(new X()), new Y()), e);
+
 	//Add more tests
 	public void orderOfOperationsTest() {
 		ExpressionTreeNode e = parser.makeExpression("(x + y * x)");
@@ -216,6 +323,5 @@ public class ParseExpressionTreeTests {
 		e = parser.makeExpression("(x - y / x)");
 		assertEquals(new Subtraction(new X(), new Division (new Y(), new X())), e);
 				
-		
 	}
 }
