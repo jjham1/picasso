@@ -302,6 +302,7 @@ public class ParseExpressionTreeTests {
 		
 		e = parser.makeExpression("yCrCbToRGB(x) + y");
 		assertEquals(new Addition(new YCrCbToRGB(new X()), new Y()), e);
+	}
 
 	//Add more tests
 	public void orderOfOperationsTest() {
