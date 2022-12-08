@@ -113,4 +113,17 @@ public class ParseExpressionTreeTests {
 		e = parser.makeExpression("exp(x) + y");
 		assertEquals(new Addition(new Exponent(new X()), new Y()), e);
 	}
+	
+	@Test
+	public void ImageWrapFunctionTests() {
+		ExpressionTreeNode e = parser.makeExpression("ImageWrap(\"beholder.jpg\", x + x, y)");
+		assertEquals(new ImageWrap(new Addition(new X(), new X()), new Y()), e);
+		
+		e = parser.makeExpression("tan( x + y )");
+		assertEquals(new Tangent(new Addition(new X(), new Y())), e);
+		
+		e = parser.makeExpression("tan(x) + y");
+		assertEquals(new Addition(new Tangent(new X()), new Y()), e);
+		
+	}
 }

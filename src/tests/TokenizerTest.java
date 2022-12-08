@@ -129,4 +129,14 @@ public class TokenizerTest {
 		assertEquals(new IdentifierToken("x"), tokens.get(2));
 		assertEquals(new RightParenToken(), tokens.get(3));
 	}
+	
+	@Test
+	public void testTokenizeImageWrap() {
+		String expression = "imageWrap(x)";
+		tokens = tokenizer.parseTokens(expression);
+		assertEquals(new SinToken(), tokens.get(0));
+		assertEquals(new LeftParenToken(), tokens.get(1));
+		assertEquals(new IdentifierToken("x"), tokens.get(2));
+		assertEquals(new RightParenToken(), tokens.get(3));
+	}
 }
