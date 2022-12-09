@@ -54,6 +54,7 @@ public class Frame extends JFrame {
 				
 				// the enter key has been pressed
 				if (actionEvent.getSource() == bar) {
+					Input.setInput(bar.getText());
 					new Evaluator().execute(canvas.getPixmap());
 					canvas.refresh();
 				}
