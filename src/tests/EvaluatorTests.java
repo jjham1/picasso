@@ -82,8 +82,8 @@ public class EvaluatorTests {
 		// test the ints; remember that y's value doesn't matter
 		for (int i = -1; i <= 1; i++) {
 			double value = Math.tan(i);
-			assertEquals(new RGBColor(i, i, i), myTree.evaluate(i, -i));
-			assertEquals(new RGBColor(i, i, i), myTree.evaluate(i, i));
+			assertEquals(new RGBColor(value, value, value), myTree.evaluate(i, -i));
+			assertEquals(new RGBColor(value, value, value), myTree.evaluate(i, i));
 		}
 
 		double[] tests = { -.7, -.00001, .000001, .5 };
@@ -252,9 +252,9 @@ public class EvaluatorTests {
 		Wrap myTree = new Wrap(new X());
 
 		// some straightforward tests 
-		assertEquals(new RGBColor(0, 0, 0), myTree.evaluate(.4, -1));
-		assertEquals(new RGBColor(0, 0, 0), myTree.evaluate(.999, -1));
-		assertEquals(new RGBColor(-1, -1, -1), myTree.evaluate(-.7, -1));
+		assertEquals(new RGBColor(.4, .4, .4), myTree.evaluate(.4, -1));
+		assertEquals(new RGBColor(.999, .999, .999), myTree.evaluate(.999, -1));
+		assertEquals(new RGBColor(.8, .8, .8), myTree.evaluate(-1.2, -1));
 
 		// test the ints; remember that y's value doesn't matter
 		for (int i = -1; i <= 1; i++) {
@@ -344,6 +344,9 @@ public class EvaluatorTests {
 		YCrCbToRGB myTree = new YCrCbToRGB(new X());
 
 		// some straightforward tests
+		
+//		for (int i = -1; i <= 1; i++) {
+//			double value = Math.tan(i);
 		assertEquals(new RGBColor(0, 0, 0), myTree.evaluate(.4, -1));
 		assertEquals(new RGBColor(0, 0, 0), myTree.evaluate(.999, -1));
 		assertEquals(new RGBColor(-1, -1, -1), myTree.evaluate(-.7, -1));
