@@ -10,6 +10,7 @@ import javax.swing.JFileChooser;
 
 import picasso.model.Pixmap;
 import picasso.util.FileCommand;
+import picasso.view.Frame;
 
 /**
  * Save the chosen file.
@@ -28,7 +29,7 @@ public class Writer extends FileCommand<Pixmap> {
 		if (fileName != null) {
 //			target.write(fileName);
 			try {
-				ImageIO.write(target.BufferedImage, "jpg", new File(fileName));
+				ImageIO.write(Frame.canvas, "jpg", new File(fileName));
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
