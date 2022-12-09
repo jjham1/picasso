@@ -33,7 +33,8 @@ public class EqualsAnalyzer implements SemanticAnalyzerInterface {
 			// Want left parameter to be the variable and right to be expression. How?
 			return new Assignment(newVar, newExpressionTreeRight);
 		}
-		//come back and fix this
+
+		//Add error handling for final implementation 
 		return null;
 
 	}
