@@ -2,6 +2,9 @@ package picasso.view;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.JFrame;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
@@ -22,6 +25,7 @@ import picasso.view.commands.*;
 @SuppressWarnings("serial")
 public class Frame extends JFrame {
 
+	static Input input;
 	static JTextArea foo = new JTextArea();
 	static JTextField bar = new JTextField();
 
@@ -47,10 +51,20 @@ public class Frame extends JFrame {
 		// create an ActionListener
 		ActionListener actionListener = new ActionListener() {
 			public void actionPerformed(ActionEvent actionEvent) {
+				
+				// the enter key has been pressed
+				if (actionEvent.getSource() == bar) {
+					Input.setInput(bar.getText());		
+					
+					System.out.println("input: " + Input.getInput());
+					
+					new Evaluator().execute(canvas.getPixmap());
+
 				// the enter key has been pressed
 				if (actionEvent.getSource() == bar) {
 					new Evaluator().execute(canvas.getPixmap());
-					canvas.refresh();
+
+          canvas.refresh();
 				}
 			}
 		};
