@@ -27,6 +27,7 @@ public class Frame extends JFrame {
 
 	static Input input;
 	static JTextArea foo = new JTextArea();
+
 	public static JTextField bar = new JTextField();
 
 	public Frame(Dimension size) {
