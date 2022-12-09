@@ -251,7 +251,7 @@ public class EvaluatorTests {
 	public void testWrapEvaluation() {
 		Wrap myTree = new Wrap(new X());
 
-		// some straightforward tests
+		// some straightforward tests 
 		assertEquals(new RGBColor(0, 0, 0), myTree.evaluate(.4, -1));
 		assertEquals(new RGBColor(0, 0, 0), myTree.evaluate(.999, -1));
 		assertEquals(new RGBColor(-1, -1, -1), myTree.evaluate(-.7, -1));

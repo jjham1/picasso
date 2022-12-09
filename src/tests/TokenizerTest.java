@@ -179,7 +179,7 @@ public class TokenizerTest {
 	public void testTokenizeCeil() {
 		String expression = "ceil(x)";
 		tokens = tokenizer.parseTokens(expression);
-		assertEquals(new SinToken(), tokens.get(0));
+		assertEquals(new CeilToken(), tokens.get(0));
 		assertEquals(new LeftParenToken(), tokens.get(1));
 		assertEquals(new IdentifierToken("x"), tokens.get(2));
 		assertEquals(new RightParenToken(), tokens.get(3));
@@ -189,7 +189,7 @@ public class TokenizerTest {
 	public void testTokenizeAbs() {
 		String expression = "abs(x)";
 		tokens = tokenizer.parseTokens(expression);
-		assertEquals(new SinToken(), tokens.get(0));
+		assertEquals(new AbsToken(), tokens.get(0));
 		assertEquals(new LeftParenToken(), tokens.get(1));
 		assertEquals(new IdentifierToken("x"), tokens.get(2));
 		assertEquals(new RightParenToken(), tokens.get(3));
@@ -199,7 +199,7 @@ public class TokenizerTest {
 	public void testTokenizeClamp() {
 		String expression = "clamp(x)";
 		tokens = tokenizer.parseTokens(expression);
-		assertEquals(new SinToken(), tokens.get(0));
+		assertEquals(new ClampToken(), tokens.get(0));
 		assertEquals(new LeftParenToken(), tokens.get(1));
 		assertEquals(new IdentifierToken("x"), tokens.get(2));
 		assertEquals(new RightParenToken(), tokens.get(3));
@@ -209,7 +209,7 @@ public class TokenizerTest {
 	public void testTokenizeWrap() {
 		String expression = "wrap(x)";
 		tokens = tokenizer.parseTokens(expression);
-		assertEquals(new SinToken(), tokens.get(0));
+		assertEquals(new WrapToken(), tokens.get(0));
 		assertEquals(new LeftParenToken(), tokens.get(1));
 		assertEquals(new IdentifierToken("x"), tokens.get(2));
 		assertEquals(new RightParenToken(), tokens.get(3));
@@ -219,7 +219,7 @@ public class TokenizerTest {
 	public void testTokenizeCos() {
 		String expression = "cos(x)";
 		tokens = tokenizer.parseTokens(expression);
-		assertEquals(new SinToken(), tokens.get(0));
+		assertEquals(new CosToken(), tokens.get(0));
 		assertEquals(new LeftParenToken(), tokens.get(1));
 		assertEquals(new IdentifierToken("x"), tokens.get(2));
 		assertEquals(new RightParenToken(), tokens.get(3));
@@ -229,7 +229,7 @@ public class TokenizerTest {
 	public void testTokenizeTan() {
 		String expression = "tan(x)";
 		tokens = tokenizer.parseTokens(expression);
-		assertEquals(new SinToken(), tokens.get(0));
+		assertEquals(new TanToken(), tokens.get(0));
 		assertEquals(new LeftParenToken(), tokens.get(1));
 		assertEquals(new IdentifierToken("x"), tokens.get(2));
 		assertEquals(new RightParenToken(), tokens.get(3));
@@ -239,7 +239,7 @@ public class TokenizerTest {
 	public void testTokenizeATan() {
 		String expression = "atan(x)";
 		tokens = tokenizer.parseTokens(expression);
-		assertEquals(new SinToken(), tokens.get(0));
+		assertEquals(new AtanToken(), tokens.get(0));
 		assertEquals(new LeftParenToken(), tokens.get(1));
 		assertEquals(new IdentifierToken("x"), tokens.get(2));
 		assertEquals(new RightParenToken(), tokens.get(3));
@@ -249,7 +249,7 @@ public class TokenizerTest {
 	public void testTokenizeExp() {
 		String expression = "exp(x)";
 		tokens = tokenizer.parseTokens(expression);
-		assertEquals(new SinToken(), tokens.get(0));
+		assertEquals(new ExpToken(), tokens.get(0));
 		assertEquals(new LeftParenToken(), tokens.get(1));
 		assertEquals(new IdentifierToken("x"), tokens.get(2));
 		assertEquals(new RightParenToken(), tokens.get(3));
@@ -259,7 +259,7 @@ public class TokenizerTest {
 	public void testTokenizeLog() {
 		String expression = "log(x)";
 		tokens = tokenizer.parseTokens(expression);
-		assertEquals(new SinToken(), tokens.get(0));
+		assertEquals(new LogToken(), tokens.get(0));
 		assertEquals(new LeftParenToken(), tokens.get(1));
 		assertEquals(new IdentifierToken("x"), tokens.get(2));
 		assertEquals(new RightParenToken(), tokens.get(3));
@@ -269,7 +269,7 @@ public class TokenizerTest {
 	public void testTokenizeRgbToYCrCb() {
 		String expression = "rgbToYCrCb(x)";
 		tokens = tokenizer.parseTokens(expression);
-		assertEquals(new SinToken(), tokens.get(0));
+		assertEquals(new RgbToYCrCbToken(), tokens.get(0));
 		assertEquals(new LeftParenToken(), tokens.get(1));
 		assertEquals(new IdentifierToken("x"), tokens.get(2));
 		assertEquals(new RightParenToken(), tokens.get(3));
@@ -279,7 +279,7 @@ public class TokenizerTest {
 	public void testTokenizeYCrCbToRGB() {
 		String expression = "yCrCbToRGB(x)";
 		tokens = tokenizer.parseTokens(expression);
-		assertEquals(new SinToken(), tokens.get(0));
+		assertEquals(new YCrCbToRGBToken(), tokens.get(0));
 		assertEquals(new LeftParenToken(), tokens.get(1));
 		assertEquals(new IdentifierToken("x"), tokens.get(2));
 		assertEquals(new RightParenToken(), tokens.get(3));
