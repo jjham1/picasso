@@ -24,6 +24,7 @@ public class ExpressionTreeGenerator {
 	private static final int GROUPING = 1; // parentheses
 	private static final int ADD_OR_SUBTRACT = 2;
 	private static final int MULTIPLY_OR_DIVIDE = 3;
+	private static final int EXPONENT = 4;
 
 	/**
 	 * Converts the given string into expression tree for easier manipulation.
@@ -83,6 +84,7 @@ public class ExpressionTreeGenerator {
 
 		while (iter.hasNext()) {
 			Token token = iter.next();
+			
 			if (token instanceof NumberToken) {
 				postfixResult.push(token);
 			} else if (token instanceof ColorToken) {
@@ -92,7 +94,7 @@ public class ExpressionTreeGenerator {
 			} else if (token instanceof FunctionToken) {
 				operators.push(token);
 			} else if (token instanceof OperationInterface) {
-
+				
 				/*
 				 * while there is an operator, o2, at the top of the stack (this
 				 * excludes left parenthesis), and either
@@ -112,6 +114,7 @@ public class ExpressionTreeGenerator {
 				}
 
 				operators.push(token);
+				
 
 			} else if (token instanceof CommaToken) {
 				// Until the token at the top of the stack is a left
@@ -191,8 +194,20 @@ public class ExpressionTreeGenerator {
 		// TODO: DISCUSS: Is it better to have a method in the OperatorToken
 		// class that gives the order of operation?
 
+		
+		//Refactor?
 		if (token instanceof PlusToken)
 			return ADD_OR_SUBTRACT;
+		else if (token instanceof MinusToken)
+			return ADD_OR_SUBTRACT;
+		else if (token instanceof TimesToken)
+			return MULTIPLY_OR_DIVIDE;
+		else if (token instanceof DivideToken)
+			return MULTIPLY_OR_DIVIDE;
+		else if (token instanceof ExpToken)
+			return EXPONENT;
+		//paren?
+
 		else
 			return CONSTANT;
 	}

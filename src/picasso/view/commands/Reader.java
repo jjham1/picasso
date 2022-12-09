@@ -49,5 +49,6 @@ public class Reader extends FileCommand<Pixmap> {
 				  System.out.println(e.getClass());
 			}
 	}
+	
 }
 }

@@ -8,6 +8,7 @@ import picasso.parser.ExpressionTreeGenerator;
 import picasso.parser.language.ExpressionTreeNode;
 import picasso.util.Command;
 import picasso.view.Frame;
+//import picasso.view.KeyEvent;
 
 /**
  * Evaluate an expression for each pixel in a image.
@@ -55,20 +56,23 @@ public class Evaluator implements Command<Pixmap> {
 		// objects directly (as in the commented statement below).
 
 
+
+		//String test = "floor(y)";
+
 //		String test = "tan(y)";
 //		String test = "floor(y)";
+
 		//String test = "x + y";
 		//String test = "cos(x)";
 //		String test = "abs(x)";
 //		String test = "abs(y)";
+
 //		String test = Frame.getBar().getText();
 		String test = Input.getInput();
-		System.out.println("evaluator input: " + test);
 
 		ExpressionTreeGenerator expTreeGen = new ExpressionTreeGenerator();
 		return expTreeGen.makeExpression(test);
 
 		// return new Multiply( new X(), new Y() );
 	}
-
 }

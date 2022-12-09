@@ -109,12 +109,177 @@ public class TokenizerTest {
 		assertEquals(new PlusToken(), tokens.get(1));
 		assertEquals(new IdentifierToken("y"), tokens.get(2));
 	}
-
+	
+	@Test
+	public void testTokenizeSubtraction() {
+		String expression = "x - y";
+		tokens = tokenizer.parseTokens(expression);
+		assertEquals(new IdentifierToken("x"), tokens.get(0));
+		assertEquals(new MinusToken(), tokens.get(1));
+		assertEquals(new IdentifierToken("y"), tokens.get(2));
+	}
+	
+	@Test
+	public void testTokenizeMuiltiplication() {
+		String expression = "x * y";
+		tokens = tokenizer.parseTokens(expression);
+		assertEquals(new IdentifierToken("x"), tokens.get(0));
+		assertEquals(new TimesToken(), tokens.get(1));
+		assertEquals(new IdentifierToken("y"), tokens.get(2));
+	}
+	
+	@Test
+	public void testTokenizeDivision() {
+		String expression = "x / y";
+		tokens = tokenizer.parseTokens(expression);
+		assertEquals(new IdentifierToken("x"), tokens.get(0));
+		assertEquals(new DivideToken(), tokens.get(1));
+		assertEquals(new IdentifierToken("y"), tokens.get(2));
+	}
+	
+	@Test
+	public void testTokenizeExponentiate() {
+		String expression = "x ^ y";
+		tokens = tokenizer.parseTokens(expression);
+		assertEquals(new IdentifierToken("x"), tokens.get(0));
+		assertEquals(new ExponentiateToken(), tokens.get(1));
+		assertEquals(new IdentifierToken("y"), tokens.get(2));
+	}
+	
+	@Test
+	public void testTokenizeModulo() {
+		String expression = "x % y";
+		tokens = tokenizer.parseTokens(expression);
+		assertEquals(new IdentifierToken("x"), tokens.get(0));
+		assertEquals(new ModuloToken(), tokens.get(1));
+		assertEquals(new IdentifierToken("y"), tokens.get(2));
+	}
+//end binary 
 	@Test
 	public void testTokenizeExponent() {
 		String expression = "exp(x)";
 		tokens = tokenizer.parseTokens(expression);
 		assertEquals(new ExpToken(), tokens.get(0));
+		assertEquals(new LeftParenToken(), tokens.get(1));
+		assertEquals(new IdentifierToken("x"), tokens.get(2));
+		assertEquals(new RightParenToken(), tokens.get(3));
+	}
+	
+	@Test
+	public void testTokenizeSine() {
+		String expression = "sin(x)";
+		tokens = tokenizer.parseTokens(expression);
+		assertEquals(new SinToken(), tokens.get(0));
+		assertEquals(new LeftParenToken(), tokens.get(1));
+		assertEquals(new IdentifierToken("x"), tokens.get(2));
+		assertEquals(new RightParenToken(), tokens.get(3));
+	}
+	
+	@Test
+	public void testTokenizeCeil() {
+		String expression = "ceil(x)";
+		tokens = tokenizer.parseTokens(expression);
+		assertEquals(new SinToken(), tokens.get(0));
+		assertEquals(new LeftParenToken(), tokens.get(1));
+		assertEquals(new IdentifierToken("x"), tokens.get(2));
+		assertEquals(new RightParenToken(), tokens.get(3));
+	}
+	
+	@Test
+	public void testTokenizeAbs() {
+		String expression = "abs(x)";
+		tokens = tokenizer.parseTokens(expression);
+		assertEquals(new SinToken(), tokens.get(0));
+		assertEquals(new LeftParenToken(), tokens.get(1));
+		assertEquals(new IdentifierToken("x"), tokens.get(2));
+		assertEquals(new RightParenToken(), tokens.get(3));
+	}
+	
+	@Test
+	public void testTokenizeClamp() {
+		String expression = "clamp(x)";
+		tokens = tokenizer.parseTokens(expression);
+		assertEquals(new SinToken(), tokens.get(0));
+		assertEquals(new LeftParenToken(), tokens.get(1));
+		assertEquals(new IdentifierToken("x"), tokens.get(2));
+		assertEquals(new RightParenToken(), tokens.get(3));
+	}
+	
+	@Test
+	public void testTokenizeWrap() {
+		String expression = "wrap(x)";
+		tokens = tokenizer.parseTokens(expression);
+		assertEquals(new SinToken(), tokens.get(0));
+		assertEquals(new LeftParenToken(), tokens.get(1));
+		assertEquals(new IdentifierToken("x"), tokens.get(2));
+		assertEquals(new RightParenToken(), tokens.get(3));
+	}
+	
+	@Test
+	public void testTokenizeCos() {
+		String expression = "cos(x)";
+		tokens = tokenizer.parseTokens(expression);
+		assertEquals(new SinToken(), tokens.get(0));
+		assertEquals(new LeftParenToken(), tokens.get(1));
+		assertEquals(new IdentifierToken("x"), tokens.get(2));
+		assertEquals(new RightParenToken(), tokens.get(3));
+	}
+	
+	@Test
+	public void testTokenizeTan() {
+		String expression = "tan(x)";
+		tokens = tokenizer.parseTokens(expression);
+		assertEquals(new SinToken(), tokens.get(0));
+		assertEquals(new LeftParenToken(), tokens.get(1));
+		assertEquals(new IdentifierToken("x"), tokens.get(2));
+		assertEquals(new RightParenToken(), tokens.get(3));
+	}
+	
+	@Test
+	public void testTokenizeATan() {
+		String expression = "atan(x)";
+		tokens = tokenizer.parseTokens(expression);
+		assertEquals(new SinToken(), tokens.get(0));
+		assertEquals(new LeftParenToken(), tokens.get(1));
+		assertEquals(new IdentifierToken("x"), tokens.get(2));
+		assertEquals(new RightParenToken(), tokens.get(3));
+	}
+	
+	@Test
+	public void testTokenizeExp() {
+		String expression = "exp(x)";
+		tokens = tokenizer.parseTokens(expression);
+		assertEquals(new SinToken(), tokens.get(0));
+		assertEquals(new LeftParenToken(), tokens.get(1));
+		assertEquals(new IdentifierToken("x"), tokens.get(2));
+		assertEquals(new RightParenToken(), tokens.get(3));
+	}
+	
+	@Test
+	public void testTokenizeLog() {
+		String expression = "log(x)";
+		tokens = tokenizer.parseTokens(expression);
+		assertEquals(new SinToken(), tokens.get(0));
+		assertEquals(new LeftParenToken(), tokens.get(1));
+		assertEquals(new IdentifierToken("x"), tokens.get(2));
+		assertEquals(new RightParenToken(), tokens.get(3));
+	}
+	
+	@Test
+	public void testTokenizeRgbToYCrCb() {
+		String expression = "rgbToYCrCb(x)";
+		tokens = tokenizer.parseTokens(expression);
+		assertEquals(new SinToken(), tokens.get(0));
+		assertEquals(new LeftParenToken(), tokens.get(1));
+		assertEquals(new IdentifierToken("x"), tokens.get(2));
+		assertEquals(new RightParenToken(), tokens.get(3));
+	}
+	
+	@Test
+	public void testTokenizeYCrCbToRGB() {
+		String expression = "yCrCbToRGB(x)";
+		tokens = tokenizer.parseTokens(expression);
+		assertEquals(new SinToken(), tokens.get(0));
 		assertEquals(new LeftParenToken(), tokens.get(1));
 		assertEquals(new IdentifierToken("x"), tokens.get(2));
 		assertEquals(new RightParenToken(), tokens.get(3));
