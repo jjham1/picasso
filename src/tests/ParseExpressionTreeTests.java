@@ -337,4 +337,25 @@ public class ParseExpressionTreeTests {
 		assertEquals(new Subtraction(new X(), new Division (new Y(), new X())), e);
 				
 	}
+	
+	public void AssignemntTest() {
+		ExpressionTreeNode e = parser.makeExpression("a =(x + y * x)");
+		assertEquals(new Addition(new X(), new Multiplication (new Y(), new X())), e);
+		
+		e = parser.makeExpression("(y * x + y)");
+		assertEquals(new Addition(new Multiplication (new Y(), new X()), new Y()), e);
+		
+		e = parser.makeExpression("(x + y / x)");
+		assertEquals(new Addition(new X(), new Division (new Y(), new X())), e);
+		
+		e = parser.makeExpression("(y / x + y)");
+		assertEquals(new Addition(new Division (new Y(), new X()), new Y()), e);
+		
+		e = parser.makeExpression("(y * x - y)");
+		assertEquals(new Subtraction(new Multiplication (new Y(), new X()), new Y()), e);
+		
+		e = parser.makeExpression("(x - y / x)");
+		assertEquals(new Subtraction(new X(), new Division (new Y(), new X())), e);
+				
+	}
 }
