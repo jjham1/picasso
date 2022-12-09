@@ -14,6 +14,7 @@ public class RGBColor extends ExpressionTreeNode {
 	public static final double COLOR_MIN = -1;
 	public static final double COLOR_MAX = 1;
 	public static final int JAVA_COLOR_MAX = 255;
+	private double buffer = .001;
 
 	private double myRed;
 	private double myGreen;
@@ -68,12 +69,29 @@ public class RGBColor extends ExpressionTreeNode {
 	}
 
 	public boolean equals(Object o) {
-		if( o == this) {
+		if (o == this) {
 			return true;
 		}
 		if (o instanceof RGBColor) {
 			RGBColor other = (RGBColor) o;
-			return myRed == other.myRed && myGreen == other.myGreen && myBlue == other.myBlue;
+
+			final double redDiff = myRed - other.myRed;
+			if (Math.abs(redDiff) >= buffer) {
+				return false;
+			}
+
+			final double greenDiff = myGreen - other.myGreen;
+			if (Math.abs(greenDiff) >= buffer) {
+				return false;
+			}
+
+			final double blueDiff = myBlue - other.myBlue;
+			if (Math.abs(blueDiff) >= buffer) {
+				return false;
+			}
+
+			return true;
+
 		}
 		return false;
 	}
