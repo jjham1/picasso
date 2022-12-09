@@ -196,6 +196,17 @@ public class ParseExpressionTreeTests {
 	}
 	
 	@Test
+
+	public void ImageWrapFunctionTests() {
+		ExpressionTreeNode e = parser.makeExpression("ImageWrap(\"beholder.jpg\", x + x, y)");
+		assertEquals(new ImageWrap("beholder.jpg", new Addition(new X(), new X()), new Y())));
+		
+		e = parser.makeExpression("tan( x + y )");
+		assertEquals(new Tangent(new Addition(new X(), new Y())), e);
+		
+		e = parser.makeExpression("tan(x) + y");
+		assertEquals(new Addition(new Tangent(new X()), new Y()), e);
+		
 	public void ceilFunctionTests() {
 		ExpressionTreeNode e = parser.makeExpression("ceil( x )");
 		assertEquals(new Ceil(new X()), e);
