@@ -67,6 +67,8 @@ public class SemanticAnalyzer implements SemanticAnalyzerInterface {
 		addSemanticAnalyzerMapping(tokenName, parserName);
 
 		// TODO: Are there any others that should be added?
+		//tokenName = TOKENS_PACKAGE_NAME + "StringToken";
+		//parserName = PARSER_PACKAGE + "StringA"
 		// Is there a better way to create this mapping?
 	}
 

@@ -8,10 +8,7 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
-import picasso.model.Pixmap;
 import picasso.parser.language.ExpressionTreeNode;
-import picasso.view.Canvas;
-import picasso.view.Frame;
 
 
 public class ImageWrap extends ExpressionTreeNode {
@@ -28,8 +25,8 @@ public class ImageWrap extends ExpressionTreeNode {
 
 	public ImageWrap(String fileName, ExpressionTreeNode x, ExpressionTreeNode y) {
 		//process image in constructor
-		this.fileName = fileName;
-		readFile("images/beholder.jpg");
+		this.fileName = "images/" + fileName;
+		readFile(this.fileName);
 		this.xFunc = x;
 		this.yFunc = y;
 	}
