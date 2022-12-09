@@ -28,12 +28,13 @@ public class Frame extends JFrame {
 	static Input input;
 	static JTextArea foo = new JTextArea();
 	public static JTextField bar = new JTextField();
+	static Canvas canvas;
 
 	public Frame(Dimension size) {
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 
 		// create GUI components
-		Canvas canvas = new Canvas(this);
+		canvas = new Canvas(this);
 		canvas.setSize(size);
 
 		// add commands to test here
@@ -67,8 +68,11 @@ public class Frame extends JFrame {
 
 	}
 	
-	public static String getBar() {
-		return bar.getText();
+	public static Canvas getCanvas() {
+		return canvas;
 	}
+//	public static String getBar() {
+//		return bar.getText();
+//	}
 		
 }
