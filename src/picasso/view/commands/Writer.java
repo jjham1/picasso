@@ -1,5 +1,7 @@
 package picasso.view.commands;
 
+import java.awt.Graphics;
+import java.awt.image.BufferedImage;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
@@ -18,6 +20,9 @@ import picasso.view.Frame;
  * @author Robert C Duvall
  */
 public class Writer extends FileCommand<Pixmap> {
+	
+	static BufferedImage image; 
+			
 	public Writer() {
 		super(JFileChooser.SAVE_DIALOG);
 	}
@@ -29,7 +34,8 @@ public class Writer extends FileCommand<Pixmap> {
 		if (fileName != null) {
 //			target.write(fileName);
 			try {
-				ImageIO.write(Frame.canvas, "jpg", new File(fileName));
+				image = Pixmap.myImage;
+				ImageIO.write(image, "jpg", new File(fileName));
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
