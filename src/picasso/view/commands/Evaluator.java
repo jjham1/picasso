@@ -69,6 +69,7 @@ public class Evaluator implements Command<Pixmap> {
 
 //		String test = Frame.getBar().getText();
 		String test = Input.getInput();
+		System.out.println("evaluator: " + test);
 
 		ExpressionTreeGenerator expTreeGen = new ExpressionTreeGenerator();
 		return expTreeGen.makeExpression(test);

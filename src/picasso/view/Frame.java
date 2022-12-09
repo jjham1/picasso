@@ -27,7 +27,7 @@ public class Frame extends JFrame {
 
 	static Input input;
 	static JTextArea foo = new JTextArea();
-	static JTextField bar = new JTextField();
+	public static JTextField bar = new JTextField();
 
 	public Frame(Dimension size) {
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -54,18 +54,10 @@ public class Frame extends JFrame {
 				
 				// the enter key has been pressed
 				if (actionEvent.getSource() == bar) {
-					Input.setInput(bar.getText());		
-					
-					System.out.println("input: " + Input.getInput());
-					
 					new Evaluator().execute(canvas.getPixmap());
-
-				// the enter key has been pressed
-				if (actionEvent.getSource() == bar) {
-					new Evaluator().execute(canvas.getPixmap());
-
-          canvas.refresh();
+					canvas.refresh();
 				}
+				
 			}
 		};
 		

@@ -1,7 +1,5 @@
 package picasso.view.commands;
 
-import picasso.view.commands.Evaluator;
-
 public class Input {
 	
 	public static String function;
