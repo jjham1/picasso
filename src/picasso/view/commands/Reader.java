@@ -1,9 +1,13 @@
 package picasso.view.commands;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+
 import javax.swing.JFileChooser;
 
 import picasso.model.Pixmap;
 import picasso.util.FileCommand;
+import picasso.view.Frame;
 
 /**
  * Open the chosen image file and display in the Pixmap target.
@@ -24,8 +28,26 @@ public class Reader extends FileCommand<Pixmap> {
 	 */
 	public void execute(Pixmap target) {
 		String fileName = getFileName();
+		String currentLine;
+		String text = "";
+
+		
 		if (fileName != null) {
-			target.read(fileName);
-		}
+			
+			try {
+				System.out.println(fileName);
+				BufferedReader br = new BufferedReader(new FileReader(fileName));
+		        while ((currentLine = br.readLine()) != null) {
+		        	text += currentLine + "\n";
+			        Frame.bar.setText(currentLine);
+		        }
+		        		        
+		        Input.setInput(text);
+		        new Evaluator().execute(target);
+		        
+			} catch (Exception e) {
+				  System.out.println(e.getClass());
+			}
 	}
+}
 }
