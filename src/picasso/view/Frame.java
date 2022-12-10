@@ -71,6 +71,7 @@ public class Frame extends JFrame {
 	public static Canvas getCanvas() {
 		return canvas;
 	}
+	
 //	public static String getBar() {
 //		return bar.getText();
 //	}
