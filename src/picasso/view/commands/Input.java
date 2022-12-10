@@ -3,7 +3,7 @@ package picasso.view.commands;
 /**
  * Tracks equation to pass to evaluator.
  * 
- * @author julieham
+ * @author Julie Ham
  *
  */
 
