@@ -24,6 +24,7 @@ public class Evaluator implements Command<Pixmap> {
 	/**
 	 * Evaluate an expression for each point in the image.
 	 */
+	
 	//try catch loop for error handling 
 	//need to update 
 	public void execute(Pixmap target) {
@@ -33,8 +34,6 @@ public class Evaluator implements Command<Pixmap> {
 			expr = createExpression();
 		} catch (ParseException e) {
 			// TODO: update gui
-			// for no print out stakc trace
-			// print: Grace was here (gui update later)
 			System.out.println("Grace was here (gui update later)");
 			e.printStackTrace();
 			return;

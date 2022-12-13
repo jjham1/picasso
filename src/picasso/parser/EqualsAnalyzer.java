@@ -24,6 +24,7 @@ public class EqualsAnalyzer implements SemanticAnalyzerInterface {
 		System.out.println(tokens);
 		Token token = tokens.pop();
 		// Check if its idetifier
+		//doesn't give guidance otherwise!!! (if not identifier token..?
 		if (token instanceof IdentifierToken) {
 			// cast as idetfier token
 			IdentifierToken t = (IdentifierToken) token;
@@ -33,9 +34,9 @@ public class EqualsAnalyzer implements SemanticAnalyzerInterface {
 			// Want left parameter to be the variable and right to be expression. How?
 			return new Assignment(newVar, newExpressionTreeRight);
 		}
-
+//error handling 
+		throw new ParseException("No variable assigned");
 		//Add error handling for final implementation 
-		return null;
 
 	}
 
