@@ -5,6 +5,7 @@ import java.awt.Dimension;
 
 import picasso.model.Pixmap;
 import picasso.parser.ExpressionTreeGenerator;
+import picasso.parser.ParseException;
 import picasso.parser.language.ExpressionTreeNode;
 import picasso.util.Command;
 import picasso.view.Frame;
@@ -23,9 +24,22 @@ public class Evaluator implements Command<Pixmap> {
 	/**
 	 * Evaluate an expression for each point in the image.
 	 */
+	//try catch loop for error handling 
+	//need to update 
 	public void execute(Pixmap target) {
+		ExpressionTreeNode expr;
 		// create the expression to evaluate just once
-		ExpressionTreeNode expr = createExpression();
+		try {
+			expr = createExpression();
+		} catch (ParseException e) {
+			// TODO: update gui
+			// for no print out stakc trace
+			// print: Grace was here (gui update later)
+			System.out.println("Grace was here (gui update later)");
+			e.printStackTrace();
+			return;
+		}
+
 		// evaluate it for each pixel
 		Dimension size = target.getSize();
 		for (int imageY = 0; imageY < size.height; imageY++) {
@@ -55,21 +69,10 @@ public class Evaluator implements Command<Pixmap> {
 		// generate expression trees from strings, or you can create expression
 		// objects directly (as in the commented statement below).
 
-
-
-		//String test = "floor(y)";
-
-//		String test = "tan(y)";
-//		String test = "floor(y)";
-
-		//String test = "x + y";
-		//String test = "cos(x)";
-//		String test = "abs(x)";
-//		String test = "abs(y)";
-
-//		String test = Frame.getBar().getText();
 		String test = Input.getInput();
 		System.out.println("evaluator: " + test);
+
+		// error handling (try catch blocks)
 
 		ExpressionTreeGenerator expTreeGen = new ExpressionTreeGenerator();
 		return expTreeGen.makeExpression(test);

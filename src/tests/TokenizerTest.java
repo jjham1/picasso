@@ -99,7 +99,7 @@ public class TokenizerTest {
 		tokens = tokenizer.parseTokens(expression);
 		// TODO: Check the tokens...
 	}
-
+	//binary tests
 	// TODO: Test arithmetic (rather than function-based) expressions ...
 	@Test
 	public void testTokenizeAddition() {
@@ -154,7 +154,8 @@ public class TokenizerTest {
 		assertEquals(new ModuloToken(), tokens.get(1));
 		assertEquals(new IdentifierToken("y"), tokens.get(2));
 	}
-//end binary 
+	//end binary 
+	//unary tests
 	@Test
 	public void testTokenizeExponent() {
 		String expression = "exp(x)";

@@ -160,6 +160,9 @@ public class SemanticAnalyzer implements SemanticAnalyzerInterface {
 		SemanticAnalyzerInterface analyzer = tokenToSemAnalyzer.get(t.getClass());
 		if (analyzer == null) {
 			throw new ParseException("No semantic analyzer for " + t.getClass());
+		//doesn't make sense to user
+			//goes to console (don't do gui) 
+			//
 		}
 		return analyzer.generateExpressionTree(tokens);
 	}

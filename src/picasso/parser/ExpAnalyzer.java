@@ -5,7 +5,12 @@ import java.util.Stack;
 import picasso.parser.language.ExpressionTreeNode;
 import picasso.parser.language.expressions.Exponent;
 import picasso.parser.tokens.Token;
-
+/**
+ * Handles parsing the exponent function.
+ * 
+ * @author Grace Owens
+ * 
+ */
 public class ExpAnalyzer extends UnaryFunctionAnalyzer {
 	
 	@Override
