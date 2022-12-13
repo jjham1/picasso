@@ -42,7 +42,7 @@ public class Reader extends FileCommand<Pixmap> {
 			        Frame.bar.setText(currentLine);
 		        }
 		        
-		        System.out.println("text: " + text);
+//		        System.out.println("text: " + text);
 		        Input.setInput(text);
 		        new Evaluator().execute(target);
 		        
