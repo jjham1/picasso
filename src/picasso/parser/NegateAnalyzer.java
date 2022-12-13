@@ -12,7 +12,7 @@ import picasso.parser.tokens.Token;
  * @author Matthew Fritz
  * 
  */
-public class NegateAnalyzer extends UnaryFunctionAnalyzer{
+public class NegateAnalyzer implements SemanticAnalyzerInterface {
 
 	@Override
 	public ExpressionTreeNode generateExpressionTree(Stack<Token> tokens) {
