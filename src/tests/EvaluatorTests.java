@@ -343,5 +343,15 @@ public class EvaluatorTests {
 			assertEquals(new RGBColor(i, i, i), myTree.evaluate(i, i));
 		}
 	}
-
+	
+	@Test
+	public void testImageWrapEvaluation() {
+		ImageWrap myTree = new ImageWrap("BlackWhiteTomlinson.png", new Addition(new X(), new X()), new Y());
+		assertEquals(new RGBColor(1,1,1), myTree.evaluate(-0.1,0));
+		assertEquals(new RGBColor(-1,-1,-1), myTree.evaluate(0.1, 0));
+		assertEquals(new RGBColor(1,1,1), myTree.evaluate(-.1, 1));
+		
+		
+	}
+	
 }

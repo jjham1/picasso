@@ -3,12 +3,11 @@ package picasso.parser;
 import java.util.Stack;
 
 import picasso.parser.language.ExpressionTreeNode;
-import picasso.parser.language.expressions.ImageWrap;
+import picasso.parser.language.expressions.ImageClip;
 import picasso.parser.tokens.StringToken;
 import picasso.parser.tokens.Token;
 
-public class ImageWrapAnalyzer implements SemanticAnalyzerInterface {
-
+public class ImageClipAnalyzer implements SemanticAnalyzerInterface {
 
 	@Override
 	public ExpressionTreeNode generateExpressionTree(Stack<Token> tokens) {
@@ -22,7 +21,7 @@ public class ImageWrapAnalyzer implements SemanticAnalyzerInterface {
 		
 		StringToken image = (StringToken) tokens.pop();
 		
-		return new ImageWrap(image.getName(), newExpressionTreeX, newExpressionTreeY);
+		return new ImageClip(image.getName(), newExpressionTreeX, newExpressionTreeY);
 		
 	}
 
