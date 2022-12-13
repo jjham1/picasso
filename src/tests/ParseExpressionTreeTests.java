@@ -37,7 +37,7 @@ public class ParseExpressionTreeTests {
 		ExpressionTreeNode e = parser.makeExpression("x");
 		assertEquals(new X(), e);
 	}
-//binary tests
+	//binary tests
 	@Test
 	public void additionExpressionTests() {
 		ExpressionTreeNode e = parser.makeExpression("x + y");
@@ -134,7 +134,7 @@ public class ParseExpressionTreeTests {
 		assertEquals(new Modulo(new Modulo(new X(), new Y()), new RGBColor(-.51, 0, 1)), e);
 	}
 
-//paren test	
+	//paren test	
 	@Test
 	public void parenthesesExpressionTests() {
 		ExpressionTreeNode e = parser.makeExpression("( x + y )");
@@ -143,7 +143,7 @@ public class ParseExpressionTreeTests {
 		e = parser.makeExpression("( x + (y + [ 1, 1, 1] ) )");
 		assertEquals(new Addition(new X(), new Addition(new Y(), new RGBColor(1, 1, 1))), e);
 	}
-//unary tests
+	//unary tests
 	@Test
 	public void floorFunctionTests() {
 		ExpressionTreeNode e = parser.makeExpression("floor( x )");
@@ -196,8 +196,13 @@ public class ParseExpressionTreeTests {
 	}
 	
 	@Test
+
+	public void ImageWrapFunctionTests() {
+		ExpressionTreeNode e = parser.makeExpression("imageWrap(\"beholder.jpg\", x + x, y)");
+
 	public void imageWrapFunctionTests() {
 		ExpressionTreeNode e = parser.makeExpression("ImageWrap(\"beholder.jpg\", x + x, y)");
+
 		assertEquals(new ImageWrap("beholder.jpg", new Addition(new X(), new X()), new Y()), e);
 		
 		e = parser.makeExpression("ImageWrap(\"vortex.jpg\", x-x, y+y)");
@@ -207,6 +212,7 @@ public class ParseExpressionTreeTests {
 		assertEquals(new ImageWrap("vortex.jpg",new Multiplication(new X(), new X()), new Division(new Y(), new Y())), e);
 	
 	}
+
 	@Test
 	public void ceilFunctionTests() {
 		ExpressionTreeNode e = parser.makeExpression("ceil( x )");
@@ -316,7 +322,8 @@ public class ParseExpressionTreeTests {
 		assertEquals(new Addition(new YCrCbToRGB(new X()), new Y()), e);
 	}
 
-	//Add more tests
+	//Order of operations tests
+	@Test
 	public void orderOfOperationsTest() {
 		ExpressionTreeNode e = parser.makeExpression("(x + y * x)");
 		assertEquals(new Addition(new X(), new Multiplication (new Y(), new X())), e);
@@ -338,7 +345,9 @@ public class ParseExpressionTreeTests {
 				
 	}
 	
-	public void AssignemntTest() {
+	//Assignment tests
+	@Test
+	public void AssignmentTest() {
 		ExpressionTreeNode e = parser.makeExpression("a =(x + y * x)");
 		assertEquals(new Addition(new X(), new Multiplication (new Y(), new X())), e);
 		
