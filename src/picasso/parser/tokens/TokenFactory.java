@@ -33,7 +33,7 @@ public class TokenFactory {
 			case StreamTokenizer.TT_NUMBER:
 				return new NumberToken(tokenizer.nval);
 			case StreamTokenizer.TT_WORD:
-
+				
 				Token t = tokenNameToToken.get(tokenizer.sval);
 
 				// If there is no token with a function name, the token must be
@@ -138,12 +138,12 @@ public class TokenFactory {
 		List<String> functionsList = BuiltinFunctionsReader.getFunctionsList();
 
 		for (String function : functionsList) {
-			// System.out.println("Function: " + function);
+			//System.out.println("Function: " + function);
 			String functionForToken = capitalize(function);
 			String tokenName = functionTokenPackage + functionForToken + "Token";
 			Class<?> tokenClass = null;
 			Token t = null;
-			// System.out.println(tokenName);
+			//System.out.println(tokenName);
 			try {
 				tokenClass = Class.forName(tokenName);
 				t = (Token) tokenClass.getDeclaredConstructor().newInstance();
