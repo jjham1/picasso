@@ -1,10 +1,5 @@
 package picasso.parser.language.expressions;
 
-import java.util.HashMap;
-
-import java.util.Map;
-import java.util.TreeMap;
-
 import picasso.parser.language.ExpressionTreeNode;
 
 import picasso.parser.IdentifierAnalyzer;
