@@ -197,9 +197,6 @@ public class ParseExpressionTreeTests {
 	
 	@Test
 
-	public void ImageWrapFunctionTests() {
-		ExpressionTreeNode e = parser.makeExpression("imageWrap(\"beholder.jpg\", x + x, y)");
-
 	public void imageWrapFunctionTests() {
 		ExpressionTreeNode e = parser.makeExpression("ImageWrap(\"beholder.jpg\", x + x, y)");
 
