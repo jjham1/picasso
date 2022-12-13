@@ -4,7 +4,6 @@ import java.util.Stack;
 
 import picasso.parser.language.ExpressionTreeNode;
 import picasso.parser.tokens.IdentifierToken;
-import picasso.parser.tokens.NumberToken;
 import picasso.parser.tokens.Token;
 import picasso.parser.language.expressions.Assignment;
 import picasso.parser.language.expressions.Variable;
@@ -30,6 +29,13 @@ public class EqualsAnalyzer implements SemanticAnalyzerInterface {
 			IdentifierToken t = (IdentifierToken) token;
 			// Create variable
 			String id = t.getName();
+			System.out.println(id);
+			if (id.equals("x")) {
+				throw new ParseException("Cannot assign x as variable");
+			}
+			if (id.equals("y")) {
+				throw new ParseException("Cannot assign y as variable");
+			}
 			Variable newVar = new Variable(id);
 			// Want left parameter to be the variable and right to be expression. How?
 			return new Assignment(newVar, newExpressionTreeRight);

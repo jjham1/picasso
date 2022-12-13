@@ -36,9 +36,9 @@ public class IdentifierAnalyzer implements SemanticAnalyzerInterface {
 			return mapped;
 		}
 
-		// TODO : What should we do if we don't recognize the identifier?
-		// Is that an error? Or, could there a valid reason?
-		return null;
+		// If we don't recognize the identifier?
+		// Is that an error? Or, could there a valid reason? -> Treating it like error
+		throw new ParseException("Variable given before assignemnt");
 	}
 
 }
