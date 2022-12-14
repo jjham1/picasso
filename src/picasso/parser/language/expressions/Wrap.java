@@ -21,12 +21,20 @@ public class Wrap extends UnaryFunction {
 	}
 
 	/**
-	 * Wrap needs to be implemented
-	 * @param value
-	 * @return Wrapped value
+	 * Creates a function that wraps the numbers
+	 * 
+	 * @param x		the coord after manipulating expression
 	 */
-	protected static double wrap(double value) {
-		return (value); 
+	public double wrap(double x) {
+		
+		double moddedX = x % 2;
+		if (moddedX < -1) {
+			return moddedX + 2;
+		}
+		if (moddedX > 1) {
+			return moddedX - 2;
+		}
+		return moddedX;
 	}
 	
 	/**

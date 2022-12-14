@@ -33,7 +33,7 @@ public class TokenFactory {
 			case StreamTokenizer.TT_NUMBER:
 				return new NumberToken(tokenizer.nval);
 			case StreamTokenizer.TT_WORD:
-
+				
 				Token t = tokenNameToToken.get(tokenizer.sval);
 
 				// If there is no token with a function name, the token must be
@@ -45,6 +45,10 @@ public class TokenFactory {
 			case '[':
 				// parse a color token if it starts with a [
 				return parseColorToken(tokenizer);
+			case '"':
+				// parse a string token if it starts with a "
+				return new StringToken(tokenizer.sval);
+						//parseStringToken(tokenizer);
 			default:
 				Token ct = CharTokenFactory.getToken(result);
 
@@ -59,6 +63,8 @@ public class TokenFactory {
 		}
 	}
 
+	
+	
 	/**
 	 * Parse a ColorToken
 	 * 
@@ -132,12 +138,12 @@ public class TokenFactory {
 		List<String> functionsList = BuiltinFunctionsReader.getFunctionsList();
 
 		for (String function : functionsList) {
-			// System.out.println("Function: " + function);
+			//System.out.println("Function: " + function);
 			String functionForToken = capitalize(function);
 			String tokenName = functionTokenPackage + functionForToken + "Token";
 			Class<?> tokenClass = null;
 			Token t = null;
-			// System.out.println(tokenName);
+			//System.out.println(tokenName);
 			try {
 				tokenClass = Class.forName(tokenName);
 				t = (Token) tokenClass.getDeclaredConstructor().newInstance();

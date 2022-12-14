@@ -67,6 +67,8 @@ public class SemanticAnalyzer implements SemanticAnalyzerInterface {
 		addSemanticAnalyzerMapping(tokenName, parserName);
 
 		// TODO: Are there any others that should be added?
+		//tokenName = TOKENS_PACKAGE_NAME + "StringToken";
+		//parserName = PARSER_PACKAGE + "StringA"
 		// Is there a better way to create this mapping?
 	}
 
@@ -158,6 +160,9 @@ public class SemanticAnalyzer implements SemanticAnalyzerInterface {
 		SemanticAnalyzerInterface analyzer = tokenToSemAnalyzer.get(t.getClass());
 		if (analyzer == null) {
 			throw new ParseException("No semantic analyzer for " + t.getClass());
+		//doesn't make sense to user
+			//goes to console (don't do gui) 
+			//
 		}
 		return analyzer.generateExpressionTree(tokens);
 	}

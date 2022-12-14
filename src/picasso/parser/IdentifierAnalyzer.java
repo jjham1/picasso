@@ -4,6 +4,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Stack;
 
+import javax.swing.JOptionPane;
+
 import picasso.parser.language.ExpressionTreeNode;
 import picasso.parser.language.expressions.X;
 import picasso.parser.language.expressions.Y;
@@ -36,9 +38,10 @@ public class IdentifierAnalyzer implements SemanticAnalyzerInterface {
 			return mapped;
 		}
 
-		// TODO : What should we do if we don't recognize the identifier?
-		// Is that an error? Or, could there a valid reason?
-		return null;
+		// If we don't recognize the identifier?
+		// Is that an error? Or, could there a valid reason? -> Treating it like error
+		JOptionPane.showMessageDialog(null, "Variable given before assignemnt", "Error", JOptionPane.ERROR_MESSAGE);
+		throw new ParseException("Variable given before assignemnt");
 	}
 
 }

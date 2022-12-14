@@ -12,6 +12,12 @@ public class ParseException extends RuntimeException {
 	public ParseException(String message) {
 		super("ParseException: " + message);
 	}
+}	
+	
+	
+
+	
+	//Possible errors
 	
 	/**
 	 * Users pass in characters that are not referencing the operators
@@ -54,4 +60,4 @@ public class ParseException extends RuntimeException {
 //		
 //	}
 
-}
+

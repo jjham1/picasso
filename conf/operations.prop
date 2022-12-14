@@ -4,3 +4,5 @@
 /=Divide
 %=Modulo
 ^=Exponentiate
+\!=Negate
+\==Equals
