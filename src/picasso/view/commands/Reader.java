@@ -39,7 +39,7 @@ public class Reader extends FileCommand<Pixmap> {
 				BufferedReader br = new BufferedReader(new FileReader(fileName));
 		        while ((currentLine = br.readLine()) != null) {
 		        	text += currentLine + "\n";
-			        Frame.bar.setText(currentLine);
+			        Frame.bar.setText(text);
 		        }
 		        
 //		        System.out.println("text: " + text);
