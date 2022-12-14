@@ -59,6 +59,7 @@ public class Evaluator implements Command<Pixmap> {
 
 
 //		String test = Frame.getBar().getText();
+		Input.setInput(Frame.getBar());
 		String input = Input.getInput();
 		
 //		HistoryLog.saveUserInput(input);

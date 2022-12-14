@@ -2,7 +2,6 @@ package picasso;
 
 import java.awt.Dimension;
 
-import picasso.view.TabPanel;
 import picasso.view.Frame;
 
 /**
@@ -16,13 +15,8 @@ public class Main {
 
 	public static void main(String[] args) {
 		
-		TabPanel panel = new TabPanel();
 		Frame frame = new Frame(SIZE);
-	    frame.setDefaultCloseOperation(Frame.EXIT_ON_CLOSE);
-
 		frame.setVisible(true);
 		
-//		Frame frame2 = new Frame(SIZE2);
-//		frame2.setVisible(true);
 	}
 }

@@ -31,7 +31,7 @@ public class Writer extends FileCommand<Pixmap> {
 		if (fileName != null) {
 //			target.write(fileName);
 			try {
-				image = Pixmap.myImage;
+				image = target.myImage;
 				ImageIO.write(image, "jpg", new File(fileName));
 			} catch (IOException e) {
 				e.printStackTrace();

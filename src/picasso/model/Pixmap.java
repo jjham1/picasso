@@ -34,13 +34,13 @@ import javax.imageio.*;
  */
 public class Pixmap {
 	public static final Dimension DEFAULT_SIZE = new Dimension(300, 300);
-	public static final Color DEFAULT_COLOR = Color.BLACK;
+	public static final Color DEFAULT_COLOR = Color.BLUE;
 	public static final String DEFAULT_NAME = "Picasso";
 
 	public static final String TEAM_NAME = "MVP's Picasso";
 
 	private String myFileName;
-	public static BufferedImage myImage;
+	public BufferedImage myImage;
 	private Dimension mySize;
 
 	/**

@@ -4,10 +4,12 @@ import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.Color;
 
 import javax.swing.JFrame;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
+import javax.swing.JTabbedPane;
 
 import picasso.model.Pixmap;
 import picasso.util.ThreadedCommand;
@@ -26,6 +28,7 @@ public class Frame extends JFrame {
 	static JTextArea foo = new JTextArea();
 	public static JTextField bar = new JTextField();
 	static Canvas canvas;
+	public static Color COLOR = Color.PINK;
 
 	public Frame(Dimension size) {
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -33,7 +36,12 @@ public class Frame extends JFrame {
 		// create GUI components
 		canvas = new Canvas(this);
 		canvas.setSize(size);
-
+		canvas.setBackground(COLOR);
+		
+		// create tabbed panes
+		TabPanel pane = new TabPanel(canvas);
+		pane.setBackground(COLOR);
+		
 		// add commands to test here
 		ButtonPanel commands = new ButtonPanel(canvas);
 		commands.add("Open", new Reader());
@@ -41,19 +49,24 @@ public class Frame extends JFrame {
 		commands.add("Save", new Writer());
 //		commands.add("History", new HistoryLog());
 
+		commands.setBackground(COLOR);
+		
 		// add our text container to Frame and show it
 		getContentPane().add(canvas, BorderLayout.CENTER);
+//		getContentPane().add(pane, BorderLayout.WEST);
 		getContentPane().add(commands, BorderLayout.NORTH);
 		getContentPane().add(foo, BorderLayout.SOUTH);
 		getContentPane().add(bar, BorderLayout.SOUTH);
 				
+		getContentPane().setBackground(COLOR);
+
 		// create an ActionListener
 		ActionListener actionListener = new ActionListener() {
 			public void actionPerformed(ActionEvent actionEvent) {
 				
 				// the enter key has been pressed
 				if (actionEvent.getSource() == bar) {
-					Input.setInput(bar.getText());
+					Input.setInput();
 					new Evaluator().execute(canvas.getPixmap());
 					canvas.refresh();
 				}
@@ -63,6 +76,9 @@ public class Frame extends JFrame {
 		
 		bar.addActionListener(actionListener);
 		pack();
+		
+//		setBackground(COLOR);
+
 		
 
 	}

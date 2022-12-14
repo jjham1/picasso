@@ -1,5 +1,7 @@
 package picasso.view.commands;
 
+import picasso.view.Frame;
+
 /**
  * Tracks equation to pass to evaluator.
  * 

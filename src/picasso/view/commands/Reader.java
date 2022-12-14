@@ -35,7 +35,7 @@ public class Reader extends FileCommand<Pixmap> {
 		if (fileName != null) {
 			
 			try {
-				System.out.println(fileName);
+//				System.out.println(fileName);
 				BufferedReader br = new BufferedReader(new FileReader(fileName));
 		        while ((currentLine = br.readLine()) != null) {
 		        	text += currentLine + "\n";
