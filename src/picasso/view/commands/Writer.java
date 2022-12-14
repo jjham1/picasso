@@ -1,10 +1,7 @@
 package picasso.view.commands;
 
-import java.awt.Graphics;
 import java.awt.image.BufferedImage;
-import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
@@ -34,7 +31,7 @@ public class Writer extends FileCommand<Pixmap> {
 		if (fileName != null) {
 //			target.write(fileName);
 			try {
-				image = Pixmap.myImage;
+				image = target.myImage;
 				ImageIO.write(image, "jpg", new File(fileName));
 			} catch (IOException e) {
 				e.printStackTrace();
