@@ -23,14 +23,16 @@ public class NewWindow {
 	
 //	public Dimension SIZE = Main.SIZE;
 	public Frame frame;
+	public static int frameCount;
 		
 	public NewWindow(Dimension size) {
+		frameCount ++;
 		frame = new Frame(size);
-//		frame.add(Frame.tabs);
 		frame.setVisible(true);
 	}
 	
 	public static void addWindow(Dimension size) {
+		frameCount ++;
 		Frame newFrame = new Frame(size);
 //		newFrame.add(Frame.tabs);
 		newFrame.setVisible(true);
