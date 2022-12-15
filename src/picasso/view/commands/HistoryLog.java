@@ -19,8 +19,6 @@ public class HistoryLog extends JFrame {
 	
 	static JTextArea foo;
 	static JFrame history = new JFrame();
-
-//	List<String> list = new ArrayList<String>();
 	
 	
 	public HistoryLog(Dimension Size) {
@@ -41,10 +39,5 @@ public class HistoryLog extends JFrame {
 	 */
 	public static void addLine(String equation) {
 		foo.append(equation + "\n");
-//		System.out.println(foo.getText());
 	}
-	
-//	public void print() {
-//		Frame.history.setVisible(true);
-//	}
 }
