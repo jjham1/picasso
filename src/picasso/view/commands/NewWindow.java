@@ -16,7 +16,7 @@ public class NewWindow {
 		
 	public NewWindow(Dimension size) {
 		countInWindow ++;
-		System.out.println("Constructor NewWindow: " + countInWindow);
+//		System.out.println("Constructor NewWindow: " + countInWindow);
 		frame = new Frame(size);
 		frame.setVisible(true);
 	}

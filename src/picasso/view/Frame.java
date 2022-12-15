@@ -8,8 +8,6 @@ import java.awt.Color;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JTabbedPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
@@ -46,7 +44,6 @@ public class Frame extends JFrame {
 		canvas.setBackground(COLOR);
 		
 		bar = new JTextField();
-		foo = new JTextArea();
 				
 		JButton addTabButton = new JButton("+");
 		addTabButton.addActionListener(new ActionListener() {
@@ -68,7 +65,6 @@ public class Frame extends JFrame {
 		// add our text container to Frame and show it
 		getContentPane().add(commands, BorderLayout.NORTH);
 		getContentPane().add(canvas, BorderLayout.CENTER);
-//		getContentPane().add(tabs, BorderLayout.WEST);
 		getContentPane().add(bar, BorderLayout.SOUTH);
 				
 		getContentPane().setBackground(COLOR);
@@ -79,7 +75,6 @@ public class Frame extends JFrame {
 				
 				// the enter key has been pressed
 				if (actionEvent.getSource() == bar) {
-//					Input.setInput(Frame.getBar());
 					new Evaluator().execute(canvas.getPixmap());
 					canvas.refresh();
 				}
@@ -90,8 +85,6 @@ public class Frame extends JFrame {
 		bar.addActionListener(actionListener);
 		pack();
 		
-		countInFrame ++;
-
 	}
 		
 	/**
