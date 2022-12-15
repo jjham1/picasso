@@ -6,10 +6,14 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.Color;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JTabbedPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
+import picasso.Main;
 import picasso.model.Pixmap;
 import picasso.util.ThreadedCommand;
 import picasso.view.commands.*;
@@ -23,8 +27,6 @@ import picasso.view.commands.*;
 @SuppressWarnings("serial")
 public class Frame extends JFrame {
 
-	public static final Dimension SIZE2 = new Dimension(300, 300);
-
 	static Input input;
 	static JTextArea foo;
 //	static JPanel menu;
@@ -34,6 +36,7 @@ public class Frame extends JFrame {
 	public static JTextField bar;
 	static Canvas canvas;
 	public static Color COLOR = Color.PINK;
+//	public static JTabbedPane tabs = new JTabbedPane();
 
 	public Frame(Dimension size) {
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -42,30 +45,35 @@ public class Frame extends JFrame {
 		canvas = new Canvas(this);
 		canvas.setSize(size);
 		canvas.setBackground(COLOR);
-//		
-//		log = new HistoryLog();
-//		log.setSize(SIZE2);
 		
 		bar = new JTextField();
 		foo = new JTextArea();
 		
-		// create tabbed panes
-		TabPanel pane = new TabPanel(canvas);
-		pane.setBackground(COLOR);
+		// for tabs
+//		tabs.setBackground(COLOR);
+		
+		JButton addTabButton = new JButton("+");
+		addTabButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+//				tabs.addTab(Integer.toString(tabs.getTabCount() + 1), new JLabel(Integer.toString(tabs.getTabCount() + 1)));
+				NewWindow.addWindow(Main.SIZE);
+			}
+		});
+		getContentPane().add(addTabButton, BorderLayout.WEST);
+		
 		
 		// add commands to test here
 		ButtonPanel commands = new ButtonPanel(canvas);
 		commands.add("Open", new Reader());
 		commands.add("Evaluate", new ThreadedCommand<Pixmap>(canvas, new Evaluator()));
 		commands.add("Save", new Writer());
-//		commands.add("History", new HistoryLog());
 
 		commands.setBackground(COLOR);
 		
 		// add our text container to Frame and show it
 		getContentPane().add(commands, BorderLayout.NORTH);
 		getContentPane().add(canvas, BorderLayout.CENTER);
-//		getContentPane().add(pane, BorderLayout.WEST);
+//		getContentPane().add(tabs, BorderLayout.WEST);
 		getContentPane().add(bar, BorderLayout.SOUTH);
 				
 		getContentPane().setBackground(COLOR);

@@ -146,6 +146,14 @@ public class Pixmap {
 			myImage.setRGB(x, y, value.getRGB());
 		}
 	}
+	
+	public void setBackground(Color value) {
+		for (int i = 0; i< mySize.width; i++) {
+			for (int j = 0; j < mySize.height; j++) {
+				myImage.setRGB(i, j, value.getRGB());
+			}
+		}
+	}
 
 	public void setSize(Dimension size) {
 		setSize(size.width, size.height);
