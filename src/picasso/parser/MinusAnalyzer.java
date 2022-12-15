@@ -8,6 +8,12 @@ import picasso.parser.tokens.Token;
 
 public class MinusAnalyzer implements SemanticAnalyzerInterface {
 
+	/**
+	 * Handles parsing the minus or "subtraction function".
+	 * 
+	 * @author Matthew Fritz
+	 * 
+	 */
 	@Override
 	public ExpressionTreeNode generateExpressionTree(Stack<Token> tokens) {
 		System.out.println(tokens);

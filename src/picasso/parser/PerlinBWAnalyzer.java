@@ -9,6 +9,12 @@ import picasso.parser.language.expressions.PerlinBW;
 public class PerlinBWAnalyzer implements SemanticAnalyzerInterface {
 
 
+	/**
+	 * Handles parsing the perlinBW function.
+	 * 
+	 * @author Matthew Fritz
+	 * 
+	 */
 	@Override
 	public ExpressionTreeNode generateExpressionTree(Stack<Token> tokens) {
 		tokens.pop();

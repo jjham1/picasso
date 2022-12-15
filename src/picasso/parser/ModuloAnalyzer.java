@@ -8,6 +8,12 @@ import picasso.parser.tokens.Token;
 
 public class ModuloAnalyzer implements SemanticAnalyzerInterface{
 
+	/**
+	 * Handles parsing the modulo or "remainder function".
+	 * 
+	 * @author Matthew Fritz
+	 * 
+	 */
 	@Override
 	public ExpressionTreeNode generateExpressionTree(Stack<Token> tokens) {
 		System.out.println(tokens);

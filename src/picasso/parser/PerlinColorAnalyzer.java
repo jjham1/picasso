@@ -8,6 +8,12 @@ import picasso.parser.tokens.Token;
 
 public class PerlinColorAnalyzer implements SemanticAnalyzerInterface {
 
+	/**
+	 * Handles parsing the perlinColor function.
+	 * 
+	 * @author Matthew Fritz
+	 * 
+	 */
 	@Override
 	public ExpressionTreeNode generateExpressionTree(Stack<Token> tokens) {
 		tokens.pop();

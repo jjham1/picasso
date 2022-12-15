@@ -11,6 +11,11 @@ import javax.imageio.ImageIO;
 import picasso.parser.language.ExpressionTreeNode;
 
 
+/**
+ * Represents imageClip in the Picasso language
+ * 
+ * @author Matthew Fritz
+ */
 public class ImageWrap extends ExpressionTreeNode {
 	
 	ExpressionTreeNode xFunc;
@@ -22,7 +27,14 @@ public class ImageWrap extends ExpressionTreeNode {
 	private BufferedImage myImage;
 	private Dimension mySize;
 	
-
+	/**
+	 * Wraps a read in image, based on an
+	 * expression that takes as parameters the given expressions
+	 * 
+	 * @param fileName the name of the file to be read, including tag
+	 * @param x the expression to manipulate the x
+	 * @param y the expression to manipulate the y
+	 */
 	public ImageWrap(String fileName, ExpressionTreeNode x, ExpressionTreeNode y) {
 		//process image in constructor
 		this.fileName = "images/" + fileName;
@@ -31,7 +43,12 @@ public class ImageWrap extends ExpressionTreeNode {
 		this.yFunc = y;
 	}
 	
-
+	/**
+	 * Evaluates this expression at the given x,y point by wrapping the image 
+	 * based on the expressions passed as the function's parameters.
+	 * 
+	 * @return the color from evaluating the wrapping of the expression's parameter
+	 */
 	@Override
 	public RGBColor evaluate(double x, double y) {
 		

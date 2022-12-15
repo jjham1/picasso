@@ -9,6 +9,12 @@ import picasso.parser.tokens.Token;
 
 public class ImageClipAnalyzer implements SemanticAnalyzerInterface {
 
+	/**
+	 * Handles parsing the imageClip function.
+	 * 
+	 * @author Matthew Fritz
+	 * 
+	 */
 	@Override
 	public ExpressionTreeNode generateExpressionTree(Stack<Token> tokens) {
 		tokens.pop();

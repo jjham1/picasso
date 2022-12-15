@@ -10,6 +10,11 @@ import javax.imageio.ImageIO;
 
 import picasso.parser.language.ExpressionTreeNode;
 
+/**
+ * Represents imageClip in the Picasso language
+ * 
+ * @author Matthew Fritz
+ */
 public class ImageClip extends ExpressionTreeNode {
 
 	ExpressionTreeNode xFunc;
@@ -22,6 +27,14 @@ public class ImageClip extends ExpressionTreeNode {
 	private Dimension mySize;
 	
 
+	/**
+	 * Clips a read in image so it only appears once, based on an
+	 * expression that takes as parameters the given expressions
+	 * 
+	 * @param fileName the name of the file to be read, including tag
+	 * @param x the expression to manipulate the x
+	 * @param y the expression to manipulate the y
+	 */
 	public ImageClip(String fileName, ExpressionTreeNode x, ExpressionTreeNode y) {
 		//process image in constructor
 		this.fileName = "images/" + fileName;
@@ -30,7 +43,12 @@ public class ImageClip extends ExpressionTreeNode {
 		this.yFunc = y;
 	}
 	
-
+	/**
+	 * Evaluates this expression at the given x,y point by clipping the image 
+	 * based on the expressions passed as the function's parameters.
+	 * 
+	 * @return the color from evaluating the clipping of the expression's parameter
+	 */
 	@Override
 	public RGBColor evaluate(double x, double y) {
 		
@@ -42,8 +60,6 @@ public class ImageClip extends ExpressionTreeNode {
 		RGBColor yResult = yFunc.evaluate(x, y);
 		double newY = yResult.getRed();
 		double clippedY = clip(newY);
-
-		//return new RGBColor(result.getRed(), result.getGreen(), result.getBlue());
 		
 		return new RGBColor(new Color(myImage.getRGB
 				(domainToImageScale(clippedX, myImage.getWidth()), 
@@ -62,9 +78,9 @@ public class ImageClip extends ExpressionTreeNode {
 	
 	
 	/**
-	 * Creates a function that wraps the numbers
+	 * Creates a function that clips the numbers
 	 * 
-	 * @param x		the coord after manipulating expression
+	 * @param x the coordinate after manipulating expression
 	 */
 	public double clip(double x) {
 		

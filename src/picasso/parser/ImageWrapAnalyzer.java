@@ -10,6 +10,12 @@ import picasso.parser.tokens.Token;
 public class ImageWrapAnalyzer implements SemanticAnalyzerInterface {
 
 
+	/**
+	 * Handles parsing the imageWrap function.
+	 * 
+	 * @author Matthew Fritz
+	 * 
+	 */
 	@Override
 	public ExpressionTreeNode generateExpressionTree(Stack<Token> tokens) {
 		tokens.pop();

@@ -9,7 +9,7 @@ import java.util.Random;
 
 import picasso.view.commands.HistoryLog;
 /**
- * Represents the cosine function in the Picasso language.
+ * Represents the random function in the Picasso language.
  * 
  * @author Julie
  * @author Matthew

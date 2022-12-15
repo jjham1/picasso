@@ -10,6 +10,12 @@ import picasso.parser.language.expressions.Multiplication;
 public class TimesAnalyzer implements SemanticAnalyzerInterface {
 
 
+	/**
+	 * Handles parsing the times or "multiplication function".
+	 * 
+	 * @author Matthew Fritz
+	 * 
+	 */
 	@Override
 	public ExpressionTreeNode generateExpressionTree(Stack<Token> tokens) {
 		System.out.println(tokens);

@@ -2,13 +2,30 @@ package picasso.parser.language.expressions;
 
 import picasso.parser.language.ExpressionTreeNode;
 
+/**
+ * Represents multiplication in Picasso language
+ * 
+ * @author Matthew Fritz
+ */
 public class Multiplication extends BinaryFunction {
 
+	/**
+	 * Create a multiplication expression that takes as parameters the given expressions
+	 * 
+	 * @param left the expression to the left of the operator
+	 * @param right the expression to the right of the operator
+	 */
 	public Multiplication(ExpressionTreeNode left, ExpressionTreeNode right) {
 		super(left, right);
 		
 	}
 
+	/**
+	 * Evaluates this expression at the given x,y point by evaluating the addition of
+	 * the function's parameters.
+	 * 
+	 * @return the color from evaluating the addition of the expression's parameter
+	 */
 	@Override
 	public RGBColor evaluate(double x, double y) {
 		RGBColor leftResult = left.evaluate(x, y);
