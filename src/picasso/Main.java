@@ -14,6 +14,7 @@ import picasso.view.commands.NewWindow;
 public class Main {
 	public static final Dimension SIZE = new Dimension(600, 600);
 	public static final Dimension SIZE2 = new Dimension(300, 300);
+	
 	public static HistoryLog log;
 	public static NewWindow first;
 	
@@ -24,8 +25,6 @@ public class Main {
 		log = new HistoryLog(SIZE2);
 		log.setLocation(700,0);
 		log.setVisible(true);
-		
-		
 		
 	}
 }

@@ -15,9 +15,9 @@ import picasso.view.Canvas;
 import picasso.view.Frame;
 
 /**
- * Open the chosen image file and display in the Pixmap target.
+ * Open a copy of the main container (Frame) for Picasso.
  * 
- * @author Robert C Duvall
+ * @author Julie Ham
  */
 public class NewWindow {
 	
@@ -31,6 +31,10 @@ public class NewWindow {
 		frame.setVisible(true);
 	}
 	
+	/**
+	 * 
+	 * @param size
+	 */
 	public static void addWindow(Dimension size) {
 		frameCount ++;
 		Frame newFrame = new Frame(size);
