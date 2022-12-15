@@ -37,7 +37,7 @@ public class HistoryLog extends JFrame {
 	/**
 	 * Takes in user input and adds it to display container
 	 * 
-	 * @param String a
+	 * @param String userInput
 	 */
 	public static void addLine(String equation) {
 		foo.append(equation + "\n");
