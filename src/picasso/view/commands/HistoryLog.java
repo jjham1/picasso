@@ -26,14 +26,13 @@ public class HistoryLog extends JFrame {
 		
 		setSize(Size);
 		
-		// creating textarea for history
-		
+		// creating GUI components
 		title = new JTextField("HISTORY");
 		title.setEditable(false);
+		
 		details = new JTextArea();
-		details.setColumns(2);
-		details.setLineWrap(false);
-		details.setWrapStyleWord(true);
+		details.setLineWrap(true);
+		details.setWrapStyleWord(false);
 		details.setEditable(false);
 		
 		// adding textarea to container
@@ -47,7 +46,7 @@ public class HistoryLog extends JFrame {
 	 * @param String userInput text from user input
 	 */
 	public static void addLine(String userInput) {
-		details.append("Window " + Integer.toString(NewWindow.countInWindow));
+		details.append("Window " + Integer.toString(NewWindow.countInWindow) + "\t");
 		details.append(userInput + "\n");
 	}
 }
