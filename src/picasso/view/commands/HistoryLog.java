@@ -4,27 +4,43 @@ import picasso.model.Pixmap;
 import picasso.util.FileCommand;
 import picasso.view.Frame;
 
+import java.awt.BorderLayout;
+import java.awt.Dimension;
 import java.util.*;
+
+import javax.swing.JFrame;
+import javax.swing.JTextArea;
 
 /**
  * 
  * @author julieham
  *
  */
-import java.io.File;
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
 
-public class HistoryLog {
-    
-	List<String> list = new ArrayList<String>();
+@SuppressWarnings("serial")
+public class HistoryLog extends JFrame {
 	
-	public void add(String equation) {
-		list.add(equation);
+	static JTextArea foo;
+	static JFrame history = new JFrame();
+
+//	List<String> list = new ArrayList<String>();
+	
+	public HistoryLog(Dimension Size) {
+		
+		setSize(Size);
+		
+		foo = new JTextArea("HISTORY\n");
+		getContentPane().add(foo, BorderLayout.CENTER);
+//		history.getContentPane().add(foo, BorderLayout.CENTER);
 	}
 	
-	public void print() {
-		System.out.println("History: " + list.toString());
+	public static void addLine(String equation) {
+//		list.add(equation);
+		foo.append(equation + "\n");
+		System.out.println(foo.getText());
 	}
+	
+//	public void print() {
+//		Frame.history.setVisible(true);
+//	}
 }

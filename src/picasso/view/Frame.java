@@ -7,6 +7,7 @@ import java.awt.event.ActionListener;
 import java.awt.Color;
 
 import javax.swing.JFrame;
+import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.JTabbedPane;
@@ -24,10 +25,15 @@ import picasso.view.commands.*;
 @SuppressWarnings("serial")
 public class Frame extends JFrame {
 
-	static Input input;
-	static JTextArea foo = new JTextArea();
+	public static final Dimension SIZE2 = new Dimension(300, 300);
 
-	public static JTextField bar = new JTextField();
+	static Input input;
+	static JTextArea foo;
+//	static JPanel menu;
+	public static JFrame history; 
+
+	public static HistoryLog log;
+	public static JTextField bar;
 	static Canvas canvas;
 	public static Color COLOR = Color.PINK;
 
@@ -38,6 +44,12 @@ public class Frame extends JFrame {
 		canvas = new Canvas(this);
 		canvas.setSize(size);
 		canvas.setBackground(COLOR);
+//		
+//		log = new HistoryLog();
+//		log.setSize(SIZE2);
+		
+		bar = new JTextField();
+		foo = new JTextArea();
 		
 		// create tabbed panes
 		TabPanel pane = new TabPanel(canvas);
@@ -53,10 +65,9 @@ public class Frame extends JFrame {
 		commands.setBackground(COLOR);
 		
 		// add our text container to Frame and show it
+		getContentPane().add(commands, BorderLayout.NORTH);
 		getContentPane().add(canvas, BorderLayout.CENTER);
 //		getContentPane().add(pane, BorderLayout.WEST);
-		getContentPane().add(commands, BorderLayout.NORTH);
-		getContentPane().add(foo, BorderLayout.SOUTH);
 		getContentPane().add(bar, BorderLayout.SOUTH);
 				
 		getContentPane().setBackground(COLOR);
@@ -67,7 +78,7 @@ public class Frame extends JFrame {
 				
 				// the enter key has been pressed
 				if (actionEvent.getSource() == bar) {
-					Input.setInput(Frame.getBar());
+//					Input.setInput(Frame.getBar());
 					new Evaluator().execute(canvas.getPixmap());
 					canvas.refresh();
 				}

@@ -32,7 +32,7 @@ public class Writer extends FileCommand<Pixmap> {
 //			target.write(fileName);
 			try {
 				image = target.myImage;
-				ImageIO.write(image, "jpg", new File(fileName));
+				ImageIO.write(image, ".png", new File(fileName));
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
