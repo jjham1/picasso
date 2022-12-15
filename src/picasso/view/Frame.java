@@ -7,10 +7,8 @@ import java.awt.event.ActionListener;
 import java.awt.Color;
 
 import javax.swing.JFrame;
-import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
-import javax.swing.JTabbedPane;
 
 import picasso.model.Pixmap;
 import picasso.util.ThreadedCommand;
@@ -95,10 +93,18 @@ public class Frame extends JFrame {
 
 	}
 		
+	/**
+	 * 
+	 * @return
+	 */
 	public static Canvas getCanvas() {
 		return canvas;
 	}
 	
+	/**
+	 * 
+	 * @return
+	 */
 	public static String getBar() {
 		return bar.getText();
 	}
