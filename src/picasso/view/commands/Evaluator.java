@@ -3,6 +3,7 @@ package picasso.view.commands;
 import java.awt.Color;
 import java.awt.Dimension;
 
+import picasso.Main;
 import picasso.model.Pixmap;
 import picasso.parser.ExpressionTreeGenerator;
 import picasso.parser.ParseException;
@@ -21,7 +22,8 @@ import picasso.view.commands.HistoryLog;
 public class Evaluator implements Command<Pixmap> {
 	public static final double DOMAIN_MIN = -1;
 	public static final double DOMAIN_MAX = 1;
-	static HistoryLog log = new HistoryLog();
+	private static String input;
+//	static HistoryLog log = new HistoryLog();
 
 	/**
 	 * Evaluate an expression for each point in the image.
@@ -33,7 +35,10 @@ public class Evaluator implements Command<Pixmap> {
 		ExpressionTreeNode expr;
 		// create the expression to evaluate just once
 		try {
+
 			expr = createExpression();
+			HistoryLog.addLine(input);
+
 		} catch (ParseException e) {
 			// TODO: update gui
 			System.out.println("Grace was here (gui update later)");
@@ -70,19 +75,18 @@ public class Evaluator implements Command<Pixmap> {
 		// generate expression trees from strings, or you can create expression
 		// objects directly (as in the commented statement below).
 
-		Input.setInput(Frame.getBar());
-		String input = Input.getInput();
-		
-		System.out.println("evaluator: " + input);
-		
-		log.add(input);
-		log.print();
+//		Main.log.addLine(input);
 
 		// error handling (try catch blocks)
 
 		ExpressionTreeGenerator expTreeGen = new ExpressionTreeGenerator();
-		return expTreeGen.makeExpression(input);
+		
+		Input.setInput(Frame.getBar());
+		input = Input.getInput();
+		
+//		System.out.println("evaluator: " + input);
 
+		return expTreeGen.makeExpression(input);
 		// return new Multiply( new X(), new Y() );
 	}
 }
