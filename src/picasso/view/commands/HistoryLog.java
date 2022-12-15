@@ -6,6 +6,7 @@ import java.awt.Dimension;
 
 import javax.swing.JFrame;
 import javax.swing.JTextArea;
+import javax.swing.JTextField;
 
 /**
  * Main container for window showing input history
@@ -17,7 +18,8 @@ import javax.swing.JTextArea;
 @SuppressWarnings("serial")
 public class HistoryLog extends JFrame {
 	
-	static JTextArea foo;
+	static JTextField title;
+	static JTextArea details;
 	static JFrame history = new JFrame();
 	
 	
@@ -26,10 +28,15 @@ public class HistoryLog extends JFrame {
 		setSize(Size);
 		
 		// creating textarea for history
-		foo = new JTextArea("HISTORY\n");
+		
+		title = new JTextField("HISTORY");
+		title.setEditable(false);
+		details = new JTextArea();
+		details.setEditable(false);
 		
 		// adding textarea to container
-		getContentPane().add(foo, BorderLayout.CENTER);
+		getContentPane().add(title, BorderLayout.NORTH);
+		getContentPane().add(details, BorderLayout.CENTER);
 	}
 	
 	/**
@@ -38,6 +45,6 @@ public class HistoryLog extends JFrame {
 	 * @param String userInput
 	 */
 	public static void addLine(String equation) {
-		foo.append(equation + "\n");
+		details.append(equation + "\n");
 	}
 }

@@ -22,6 +22,7 @@ public class Main {
 		first = new NewWindow(SIZE);
 		
 		log = new HistoryLog(SIZE2);
+		log.setLocation(700,0);
 		log.setVisible(true);
 		
 		
