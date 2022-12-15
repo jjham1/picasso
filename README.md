@@ -9,6 +9,12 @@ as your application grows, you may need to refactor.
 
 See the specification for Picasso on the course web site.
 
+## Extensions
+
+GUI: history - another JFrame pops up on run and documents both error-free equations and which window they are inputted in
+
+multiple window viewing - the giant "+" button on the left side allows users to create new Frame windows on command. mind you that it doesn't allow users to re-edit previous windows.
+
 ## Project Organization
 
 `src` - the source code for the project
