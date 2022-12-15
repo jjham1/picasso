@@ -31,11 +31,14 @@ public class HistoryLog extends JFrame {
 		title = new JTextField("HISTORY");
 		title.setEditable(false);
 		details = new JTextArea();
+		details.setColumns(2);
+		details.setLineWrap(false);
+		details.setWrapStyleWord(true);
 		details.setEditable(false);
 		
 		// adding textarea to container
 		getContentPane().add(title, BorderLayout.NORTH);
-		getContentPane().add(details, BorderLayout.CENTER);
+		getContentPane().add(details);
 	}
 	
 	/**
@@ -44,6 +47,7 @@ public class HistoryLog extends JFrame {
 	 * @param String userInput text from user input
 	 */
 	public static void addLine(String userInput) {
+		details.append("Window " + Integer.toString(NewWindow.countInWindow));
 		details.append(userInput + "\n");
 	}
 }

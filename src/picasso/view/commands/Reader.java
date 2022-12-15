@@ -38,11 +38,12 @@ public class Reader extends FileCommand<Pixmap> {
 //				System.out.println(fileName);
 				BufferedReader br = new BufferedReader(new FileReader(fileName));
 		        while ((currentLine = br.readLine()) != null) {
+		        	if (currentLine.contains("//")) {
+		        		continue;
+		        	}
 		        	text += currentLine + "\n";
-		        	System.out.println(text);
 		        }
 		        
-//		        System.out.println("text: " + text);
 		        Frame.bar.setText(text);
 		        Input.setInput(text);
 		        new Evaluator().execute(target);

@@ -2,7 +2,6 @@ package picasso;
 
 import java.awt.Dimension;
 
-import picasso.view.Frame;
 import picasso.view.commands.HistoryLog;
 import picasso.view.commands.NewWindow;
 
@@ -25,7 +24,7 @@ public class Main {
 		first = new NewWindow(SIZE);
 		
 		log = new HistoryLog(SIZE2);
-		log.setLocation(700,0);
+		log.setLocation(750,0);
 		log.setVisible(true);
 		
 	}

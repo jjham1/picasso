@@ -1,17 +1,7 @@
 package picasso.view.commands;
 
 import java.awt.Dimension;
-import java.io.BufferedReader;
-import java.io.FileReader;
 
-import javax.swing.JFileChooser;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-
-import picasso.Main;
-import picasso.model.Pixmap;
-import picasso.util.ThreadedCommand;
-import picasso.view.Canvas;
 import picasso.view.Frame;
 
 /**
@@ -21,12 +11,12 @@ import picasso.view.Frame;
  */
 public class NewWindow {
 	
-//	public Dimension SIZE = Main.SIZE;
 	public Frame frame;
-	public static int frameCount;
+	public static int countInWindow;
 		
 	public NewWindow(Dimension size) {
-		frameCount ++;
+		countInWindow ++;
+		System.out.println("Constructor NewWindow: " + countInWindow);
 		frame = new Frame(size);
 		frame.setVisible(true);
 	}
@@ -37,9 +27,8 @@ public class NewWindow {
 	 * @param size size of the Frame imported from Main's declaration
 	 */
 	public static void addWindow(Dimension size) {
-		frameCount ++;
+		countInWindow ++;
 		Frame newFrame = new Frame(size);
-//		newFrame.add(Frame.tabs);
 		newFrame.setVisible(true);
 		}
 
