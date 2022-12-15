@@ -94,16 +94,18 @@ public class Frame extends JFrame {
 	}
 		
 	/**
+	 * Returns canvas container of this canvas
 	 * 
-	 * @return
+	 * @return canvas
 	 */
 	public static Canvas getCanvas() {
 		return canvas;
 	}
 	
 	/**
+	 * Returns text that is inputted into JTextBar
 	 * 
-	 * @return
+	 * @return String text
 	 */
 	public static String getBar() {
 		return bar.getText();

@@ -21,7 +21,6 @@ public class Main {
 		frame.setVisible(true);
 		
 		log = new HistoryLog(SIZE2);
-//		log.setSize(SIZE2);
 		log.setVisible(true);
 		
 		
