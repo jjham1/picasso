@@ -24,7 +24,6 @@ public class NewWindow extends JPanel {
 	
 	public NewWindow(JFrame frame) {
 		
-		thisCanvas = New Canvas(frame);
 		
 	}
 
