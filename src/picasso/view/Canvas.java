@@ -41,7 +41,7 @@ public class Canvas extends JPanel {
 		addComponentListener(new ComponentAdapter() {
 			public void componentResized(ComponentEvent e) {
 				myPixmap.setSize(getSize());
-				myPixmap.setBackground(Color.PINK);
+				myPixmap.setBackground(Color.WHITE);
 			}
 		});
 		refresh();
