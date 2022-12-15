@@ -32,8 +32,9 @@ public class NewWindow {
 	}
 	
 	/**
+	 * Creates a new JFrame from the class Frame
 	 * 
-	 * @param size
+	 * @param size size of the Frame imported from Main's declaration
 	 */
 	public static void addWindow(Dimension size) {
 		frameCount ++;

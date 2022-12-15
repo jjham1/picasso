@@ -104,7 +104,7 @@ public class Frame extends JFrame {
 	/**
 	 * Returns canvas container of this canvas
 	 * 
-	 * @return canvas
+	 * @return canvas the canvas that the image is generated on
 	 */
 	public static Canvas getCanvas() {
 		return canvas;
@@ -113,7 +113,7 @@ public class Frame extends JFrame {
 	/**
 	 * Returns text that is inputted into JTextBar
 	 * 
-	 * @return String text
+	 * @return String text user input
 	 */
 	public static String getBar() {
 		return bar.getText();

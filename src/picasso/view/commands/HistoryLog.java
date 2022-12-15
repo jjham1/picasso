@@ -1,6 +1,5 @@
 package picasso.view.commands;
 
-
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 
@@ -42,9 +41,9 @@ public class HistoryLog extends JFrame {
 	/**
 	 * Takes in user input and adds it to display container
 	 * 
-	 * @param String userInput
+	 * @param String userInput text from user input
 	 */
-	public static void addLine(String equation) {
-		details.append(equation + "\n");
+	public static void addLine(String userInput) {
+		details.append(userInput + "\n");
 	}
 }
