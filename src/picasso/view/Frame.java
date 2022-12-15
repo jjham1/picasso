@@ -23,8 +23,6 @@ import picasso.view.commands.*;
 @SuppressWarnings("serial")
 public class Frame extends JFrame {
 
-	public static final Dimension SIZE2 = new Dimension(300, 300);
-
 	static Input input;
 	static JTextArea foo;
 //	static JPanel menu;
@@ -42,9 +40,6 @@ public class Frame extends JFrame {
 		canvas = new Canvas(this);
 		canvas.setSize(size);
 		canvas.setBackground(COLOR);
-//		
-//		log = new HistoryLog();
-//		log.setSize(SIZE2);
 		
 		bar = new JTextField();
 		foo = new JTextArea();
