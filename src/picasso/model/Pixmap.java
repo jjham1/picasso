@@ -5,6 +5,8 @@ import java.awt.image.*;
 import java.io.*;
 import javax.imageio.*;
 
+import picasso.view.commands.NewWindow;
+
 /**
  * Class for manipulating graphics images, originally developed in C++.
  * 
@@ -211,7 +213,7 @@ public class Pixmap {
 	}
 
 	private void createImage(int width, int height, Color color) {
-		myFileName = TEAM_NAME;
+		myFileName = TEAM_NAME + " - Window " + Integer.toString(NewWindow.countInWindow);
 		myImage = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
 		mySize = new Dimension(width, height);
 	}

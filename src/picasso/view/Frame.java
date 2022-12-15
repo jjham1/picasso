@@ -27,20 +27,19 @@ import picasso.view.commands.*;
 @SuppressWarnings("serial")
 public class Frame extends JFrame {
 
+	public static int countInFrame;
 	static Input input;
 	static JTextArea foo;
-//	static JPanel menu;
 	public static JFrame history; 
 
 	public static HistoryLog log;
 	public static JTextField bar;
 	static Canvas canvas;
 	public static Color COLOR = Color.PINK;
-//	public static JTabbedPane tabs = new JTabbedPane();
 
 	public Frame(Dimension size) {
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
-
+		
 		// create GUI components
 		canvas = new Canvas(this);
 		canvas.setSize(size);
@@ -48,14 +47,10 @@ public class Frame extends JFrame {
 		
 		bar = new JTextField();
 		foo = new JTextArea();
-		
-		// for tabs
-//		tabs.setBackground(COLOR);
-		
+				
 		JButton addTabButton = new JButton("+");
 		addTabButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-//				tabs.addTab(Integer.toString(tabs.getTabCount() + 1), new JLabel(Integer.toString(tabs.getTabCount() + 1)));
 				NewWindow.addWindow(Main.SIZE);
 			}
 		});
@@ -95,16 +90,14 @@ public class Frame extends JFrame {
 		bar.addActionListener(actionListener);
 		pack();
 		
-//		setBackground(COLOR);
-
-		
+		countInFrame ++;
 
 	}
 		
 	/**
 	 * Returns canvas container of this canvas
 	 * 
-	 * @return canvas
+	 * @return canvas the canvas that the image is generated on
 	 */
 	public static Canvas getCanvas() {
 		return canvas;
@@ -113,7 +106,7 @@ public class Frame extends JFrame {
 	/**
 	 * Returns text that is inputted into JTextBar
 	 * 
-	 * @return String text
+	 * @return String text user input
 	 */
 	public static String getBar() {
 		return bar.getText();

@@ -1,38 +1,34 @@
 package picasso.view.commands;
 
 import java.awt.Dimension;
-import java.io.BufferedReader;
-import java.io.FileReader;
 
-import javax.swing.JFileChooser;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-
-import picasso.Main;
-import picasso.model.Pixmap;
-import picasso.util.ThreadedCommand;
-import picasso.view.Canvas;
 import picasso.view.Frame;
 
 /**
- * Open the chosen image file and display in the Pixmap target.
+ * Open a copy of the main container (Frame) for Picasso.
  * 
- * @author Robert C Duvall
+ * @author Julie Ham
  */
 public class NewWindow {
 	
-//	public Dimension SIZE = Main.SIZE;
 	public Frame frame;
+	public static int countInWindow;
 		
 	public NewWindow(Dimension size) {
+		countInWindow ++;
+		System.out.println("Constructor NewWindow: " + countInWindow);
 		frame = new Frame(size);
-//		frame.add(Frame.tabs);
 		frame.setVisible(true);
 	}
 	
+	/**
+	 * Creates a new JFrame from the class Frame
+	 * 
+	 * @param size size of the Frame imported from Main's declaration
+	 */
 	public static void addWindow(Dimension size) {
+		countInWindow ++;
 		Frame newFrame = new Frame(size);
-//		newFrame.add(Frame.tabs);
 		newFrame.setVisible(true);
 		}
 

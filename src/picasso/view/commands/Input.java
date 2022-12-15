@@ -12,8 +12,10 @@ import picasso.view.Frame;
 public class Input {
 	
 	static String function;
+	static Frame current;
 
-	public Input() {
+	public Input(Frame thisFrame) {
+		current = thisFrame;
 	}
 	
 	/**

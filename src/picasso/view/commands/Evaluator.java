@@ -82,6 +82,9 @@ public class Evaluator implements Command<Pixmap> {
 		Input.setInput(Frame.getBar());
 		input = Input.getInput();
 		
+		System.out.println("Input to Evaluate: " + input);
+		System.out.println("Window in evaluate: " + Integer.toString(Frame.countInFrame));
+		
 		return expTreeGen.makeExpression(input);
 		// return new Multiply( new X(), new Y() );
 	}
